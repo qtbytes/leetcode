@@ -12,9 +12,9 @@ code:
         import functools
         import heapq 
         import itertools 
+        import operator
         import math 
-        from operator import xor
-        from string import ascii_lowercase
+        import string
   # rust:
   # blocks:
   #   - name: beforeCode
