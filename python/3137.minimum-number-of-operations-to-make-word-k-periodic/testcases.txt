@@ -1,0 +1,11 @@
+input:
+"leetcodeleet"
+4
+output:
+
+
+input:
+"leetcoleet"
+2
+output:
+3
