@@ -1,0 +1,9 @@
+input:
+"fabccddg"
+output:
+
+
+input:
+"abababaccddb"
+output:
+
