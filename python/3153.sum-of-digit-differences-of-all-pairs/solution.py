@@ -29,7 +29,6 @@ class Solution:
             for i in range(d):
                 bits[i][x%10] += 1
                 x //=10
-        print(bits)
         
         return sum(handle(bit) for bit in bits)
         
