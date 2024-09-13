@@ -27,33 +27,51 @@ class Solution:
         - `1 <= chargeTimes[i], runningCosts[i] <= 10⁵`
         - `1 <= budget <= 10¹⁵`
         """
-        p = list(itertools.accumulate(runningCosts, initial=0))
 
         n = len(runningCosts)
-
-        def check(mid):
-            q = []  # maintain the max for range(i,i+mid)
-            for i in range(mid - 1):
-                heapq.heappush(q, (-chargeTimes[i], i))
-            for i in range(mid - 1, n):
-                while q and q[0][1] + mid <= i:
+        q = []
+        l = r = 0
+        s = 0
+        res = 0
+        for r, x in enumerate(runningCosts):
+            heapq.heappush(q, (-chargeTimes[r], r))
+            s += x
+            while l <= r and s * (r - l + 1) - q[0][0] > budget:
+                s -= runningCosts[l]
+                l += 1
+                while q and q[0][1] < l:
                     heapq.heappop(q)
-                heapq.heappush(q, (-chargeTimes[i], i))
-                cur = -q[0][0] + mid * (p[i + 1] - p[i - (mid - 1)])
-                if cur <= budget:
-                    return True
-            return False
+            # print(l, r, q, s)
+            res = max(res, r - l + 1)
+        return res
 
-        l = 0
-        r = n
+        # p = list(itertools.accumulate(runningCosts, initial=0))
 
-        while l < r:
-            mid = (l + r + 1) >> 1
-            if check(mid):
-                l = mid
-            else:
-                r = mid - 1
-        return r
+        # n = len(runningCosts)
+
+        # def check(mid):
+        #     q = []  # maintain the max for range(i,i+mid)
+        #     for i in range(mid - 1):
+        #         heapq.heappush(q, (-chargeTimes[i], i))
+        #     for i in range(mid - 1, n):
+        #         while q and q[0][1] + mid <= i:
+        #             heapq.heappop(q)
+        #         heapq.heappush(q, (-chargeTimes[i], i))
+        #         cur = -q[0][0] + mid * (p[i + 1] - p[i - (mid - 1)])
+        #         if cur <= budget:
+        #             return True
+        #     return False
+
+        # l = 0
+        # r = n
+
+        # while l < r:
+        #     mid = (l + r + 1) >> 1
+        #     if check(mid):
+        #         l = mid
+        #     else:
+        #         r = mid - 1
+        # return r
 
 
 # @lc code=end
