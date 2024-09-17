@@ -31,6 +31,7 @@ class Solution:
         """
         if source == target:
             return 0
+
         mp = collections.defaultdict(list)
         for i, route in enumerate(routes):
             for stop in route:
@@ -39,18 +40,16 @@ class Solution:
         q = collections.deque()
         for route in mp[source]:
             q.append((1, route))
-        visited_route = [False] * len(routes)
+
         while q:
             route_cnt, route_i = q.popleft()
-            visited_route[route_i] = True
             for stop in routes[route_i]:
                 if stop == target:
                     return route_cnt
                 for route_j in mp[stop]:
-                    if not visited_route[route_j]:
-                        visited_route[route_j] = True
-                        q.append((route_cnt + 1, route_j))
+                    q.append((route_cnt + 1, route_j))
                 del mp[stop]
+            routes[route_i].clear()
 
         return -1
 
