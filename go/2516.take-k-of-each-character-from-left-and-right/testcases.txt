@@ -1,0 +1,11 @@
+input:
+"aabaaaacaabc"
+2
+output:
+8
+
+input:
+"a"
+1
+output:
+-1
