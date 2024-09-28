@@ -1,0 +1,11 @@
+input:
+["MyCircularDeque","insertLast","insertLast","insertFront","insertFront","getRear","isFull","deleteLast","insertFront","getFront"]
+[[3],[1],[2],[3],[4],[],[],[],[4],[]]
+output:
+[null, true, true, true, false, 2, true, true, true, 4]
+
+input:
+["MyCircularDeque","insertFront","insertLast","insertLast","getFront","deleteLast","getRear","insertFront","deleteFront","getRear","insertLast","isFull"]
+[[3],[8],[8],[2],[],[],[],[9],[],[],[2],[]]
+output:
+[null,true,true,true,8,true,8,true,true,8,true,true]
