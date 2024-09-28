@@ -15,6 +15,12 @@ code:
         import operator
         import math 
         import string
+  go:
+    modifiers:
+      - name: removeUselessComments
+      - name: changeReceiverName
+      # - name: addNamedReturn
+      # - name: addMod       
   # rust:
   # blocks:
   #   - name: beforeCode
