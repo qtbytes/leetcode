@@ -8,6 +8,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"slices"
 
 	. "github.com/j178/leetgo/testutils/go"
 )
@@ -15,13 +16,13 @@ import (
 // @lc code=begin
 
 func minimumTime(time []int, totalTrips int) int64 {
-	l, r := int64(1), int64(time[0])*int64(totalTrips)
-	var check = func(mid int64) bool {
-		res := int64(0)
+	l, r := 1, slices.Min(time)*totalTrips
+	var check = func(mid int) bool {
+		res := 0
 		for _, t := range time {
-			res += (mid / int64(t))
+			res += mid / t
 		}
-		return res >= int64(totalTrips)
+		return res >= totalTrips
 	}
 	for l < r {
 		mid := (l + r) >> 1
@@ -31,8 +32,7 @@ func minimumTime(time []int, totalTrips int) int64 {
 			l = mid + 1
 		}
 	}
-	return l
-
+	return int64(l)
 }
 
 // @lc code=end
