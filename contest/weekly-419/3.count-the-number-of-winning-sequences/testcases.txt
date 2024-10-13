@@ -1,0 +1,9 @@
+input:
+"FFF"
+output:
+3
+
+input:
+"FWEFW"
+output:
+18
