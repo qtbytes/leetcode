@@ -1,0 +1,14 @@
+input:
+[12,12,30,24,24]
+output:
+2
+
+input:
+[72,48,24,3]
+output:
+3
+
+input:
+[13,11]
+output:
+1
