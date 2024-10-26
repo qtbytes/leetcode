@@ -29,7 +29,7 @@ code:
   #       use std::collections::*;
   #       use std::mem::swap;
 leetcode:
-  site: https://leetcode.cn
+  site: https://leetcode.com
   credentials:
     from: cookies
 contest:
