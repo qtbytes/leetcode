@@ -34,14 +34,17 @@ func minimumTotalDistance(robot []int, factory [][]int) int64 {
 	dp := make([][]int, n+1)
 	for i := range dp {
 		dp[i] = make([]int, m+1)
+		for j := range dp[i] {
+			dp[i][j] = 1 << 40
+		}
 	}
-
+	for j := range dp[0] {
+		dp[0][j] = 0
+	}
 	sort.Ints(robot)
 	sort.Ints(pos)
 	for i, r := range robot {
-		dp[i+1][i+1] = dp[i][i] + abs(r-pos[i])
-		for j := i + 1; j < m; j++ {
-			p := pos[j]
+		for j, p := range pos {
 			dp[i+1][j+1] = min(dp[i+1][j], dp[i][j]+abs(r-p))
 		}
 	}
