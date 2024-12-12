@@ -1,7 +1,7 @@
 author: none
 language: en
 code:
-  lang: go # python
+  lang: python
   python3:
     blocks:
     - name: beforeMarker
