@@ -7,14 +7,16 @@ code:
     - name: beforeMarker
       template: |
 
-        import bisect
-        import collections 
-        import functools
-        import heapq 
-        import itertools 
-        import operator
-        import math 
-        import string
+        from bisect import bisect_left, bisect_right
+        from collections import Counter, defaultdict, deque
+        from functools import cache, cmp_to_key, lru_cache, reduce
+        from heapq import heapify, heappop, heappush, heappushpop, heapreplace
+        from itertools import accumulate, chain, count, pairwise, zip_longest
+        from math import ceil, comb, floor, gcd, inf, isqrt, lcm, log2, perm, sqrt
+        from operator import xor
+        from pprint import pprint
+        from string import ascii_lowercase
+        from typing import List, Optional
   go:
     modifiers:
       - name: removeUselessComments
