@@ -1,0 +1,11 @@
+input:
+["acca","bbbb","caca"]
+"aba"
+output:
+6
+
+input:
+["abba","baab"]
+"bab"
+output:
+4
