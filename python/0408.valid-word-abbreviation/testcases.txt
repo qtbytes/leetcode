@@ -1,0 +1,17 @@
+input:
+"internationalization"
+"i12iz4n"
+output:
+true
+
+input:
+"apple"
+"a2e"
+output:
+false
+
+input:
+"abbde"
+"a1b01e"
+output:
+false
