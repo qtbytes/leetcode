@@ -1,0 +1,11 @@
+input:
+["HitCounter","hit","hit","hit","getHits","hit","getHits","getHits"]
+[[],[1],[2],[3],[4],[300],[300],[301]]
+output:
+[null, null, null, null, 3, null, 4, 3]
+
+input:
+["HitCounter","hit","hit","hit","getHits","getHits","getHits","getHits","getHits","hit","getHits"]
+[[],[2],[3],[4],[300],[301],[302],[303],[304],[501],[600]]
+output:
+[null,null,null,null,3,3,2,1,0,null,1]
