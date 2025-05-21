@@ -6,30 +6,32 @@ from typing import *
 from leetgo_py import *
 
 import bisect
-import collections 
+import collections
 import functools
-import heapq 
-import itertools 
+import heapq
+import itertools
 import operator
-import math 
+import math
 import string
 
 # @lc code=begin
 
+
 class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
-        def f(s:str, target:str, k:int):
+        def f(s: str, target: str, k: int):
             l = 0
             res = 0
             for r, ch in enumerate(s):
                 while ch != target and k == 0:
                     k += s[l] != target
                     l += 1
-                res = max(res,r - l + 1 )
+                res = max(res, r - l + 1)
                 if ch != target:
                     k -= 1
             return res
-        return max(f(answerKey, "T", k), f(answerKey, 'F', k))
+
+        return max(f(answerKey, "T", k), f(answerKey, "F", k))
 
 
 # @lc code=end

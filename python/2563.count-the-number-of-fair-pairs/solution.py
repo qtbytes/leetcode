@@ -24,8 +24,8 @@ class Solution:
         res = 0
         nums.sort()
         for i, x in enumerate(nums):
-            l = bisect_left(nums, lower - x, lo=i+1)
-            r = bisect_right(nums, upper - x, lo=i+1)
+            l = bisect_left(nums, lower - x, lo=i + 1)
+            r = bisect_right(nums, upper - x, lo=i + 1)
             res += r - l
         return res
 

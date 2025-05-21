@@ -6,15 +6,16 @@ from typing import *
 from leetgo_py import *
 
 import bisect
-import collections 
+import collections
 import functools
-import heapq 
-import itertools 
+import heapq
+import itertools
 import operator
-import math 
+import math
 import string
 
 # @lc code=begin
+
 
 class Solution:
     def maxStrength(self, nums: List[int]) -> int:
@@ -37,8 +38,7 @@ class Solution:
         if len(a) == 1 and zero + len(a) == len(nums):
             return 0
         a.sort(reverse=True)
-        return res*functools.reduce(operator.mul, a[1:], 1)
-
+        return res * functools.reduce(operator.mul, a[1:], 1)
 
 
 # @lc code=end
