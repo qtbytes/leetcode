@@ -26,32 +26,19 @@ class Solution:
             balance[_from] -= x
             balance[to] += x
 
-        pos = []
-        neg = []
-        for x in balance:
-            if x < 0:
-                neg.append(-x)
-            elif x > 0:
-                pos.append(x)
-
-        m, n = len(pos), len(neg)
+        n = len(balance)
 
         def dfs(i: int) -> int:
-            if i == m:
+            if i == n:
                 return 0
-            if pos[i] == 0:
+            if balance[i] == 0:
                 return dfs(i + 1)
             res = inf
-            for j in range(n):
-                if neg[j] != 0:
-                    value = min(neg[j], pos[i])
-                    pos[i] -= value
-                    neg[j] -= value
-
-                    res = min(res, 1 + dfs(i))
-
-                    pos[i] += value
-                    neg[j] += value
+            for j in range(i + 1, n):
+                if balance[i] * balance[j] < 0:
+                    balance[j] += balance[i]
+                    res = min(res, 1 + dfs(i + 1))
+                    balance[j] -= balance[i]
             return res
 
         return dfs(0)
