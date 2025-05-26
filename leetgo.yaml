@@ -1,7 +1,7 @@
 author: none
 language: en
 code:
-  lang: cpp
+  lang: python3
   cpp:
     cxx: clang++
     cxxflags: -O2 -std=c++23
