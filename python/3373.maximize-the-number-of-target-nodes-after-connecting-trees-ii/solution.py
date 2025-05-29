@@ -29,37 +29,33 @@ class Solution:
                 g[y].append(x)
             return g
 
-        def dp(g: list[list[int]]):
-            f = [[0] * 2 for _ in range(len(g))]
+        g = build_edges(edges2)
+        cnt = [0] * 2
 
-            def dfs(x: int, fa: int):
-                op0, op1 = 1, 0
-                for y in g[x]:
-                    if y == fa:
-                        continue
-                    sub0, sub1 = dfs(y, x)
-                    op0 += sub1
-                    op1 += sub0
-                f[x] = [op0, op1]
-                return op0, op1
+        def dfs(x: int, fa: int, color: int):
+            cnt[color] += 1
+            for y in g[x]:
+                if y == fa:
+                    continue
+                dfs(y, x, color ^ 1)
 
-            def change_root(x: int, fa: int):
-                for y in g[x]:
-                    if y == fa:
-                        continue
-                    op0, op1 = f[x]
-                    op0 -= f[y][1]
-                    op1 -= f[y][0]
-                    f[y][1] += op0
-                    f[y][0] += op1
-                    change_root(y, x)
+        dfs(0, -1, 0)
+        extra = max(cnt)
 
-            dfs(0, -1)
-            change_root(0, -1)
-            return f
+        g = build_edges(edges1)
+        cnt = [0] * 2
+        res = [extra] * len(g)
+        dfs(0, -1, 0)
 
-        extra = max(op1 for _, op1 in dp(build_edges(edges2)))
-        return [op0 + extra for op0, _ in dp(build_edges(edges1))]
+        def change_root(x: int, fa: int, color: int):
+            res[x] += cnt[color]
+            for y in g[x]:
+                if y == fa:
+                    continue
+                change_root(y, x, color ^ 1)
+
+        change_root(0, -1, 0)
+        return res
 
 
 # @lc code=end
