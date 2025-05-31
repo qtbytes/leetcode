@@ -16,11 +16,12 @@ from typing import List, Optional
 from leetgo_py import *
 
 # @lc code=begin
+from sortedcontainers import SortedList
 
 
 class Solution:
     def minSubarraySort(self, nums: List[int], k: int) -> List[int]:
-        def diff(a: list[int], b: list[int]):
+        def diff(a: deque[int], b: SortedList[int]):
             l = r = -1
             for i, (x, y) in enumerate(zip(a, b)):
                 if x != y:
@@ -29,10 +30,19 @@ class Solution:
                     r = i
             return (r - l + 1) if l != -1 else 0
 
-        return [
-            diff(nums[i - k : i], sorted(nums[i - k : i]))
-            for i in range(k, len(nums) + 1)
-        ]
+        q, sl = deque(), SortedList()
+        for i in range(k - 1):
+            q.append(nums[i])
+            sl.add(nums[i])
+
+        res = []
+        for i in range(k - 1, len(nums)):
+            q.append(nums[i])
+            sl.add(nums[i])
+
+            res.append(diff(q, sl))
+            sl.remove(q.popleft())
+        return res
 
 
 # @lc code=end
