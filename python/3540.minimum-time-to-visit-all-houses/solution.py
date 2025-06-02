@@ -23,21 +23,20 @@ class Solution:
         self, forward: List[int], backward: List[int], queries: List[int]
     ) -> int:
         forward_prefix = list(accumulate(forward, initial=0))
-        backward_prefix = list(accumulate(backward[::-1], initial=0))[::-1]
+        backward_prefix = list(accumulate(backward[1:] + [backward[0]], initial=0))
         x = 0
         res = 0
         for y in queries:
             if x <= y:
                 forward_cost = forward_prefix[y] - forward_prefix[x]
                 backward_cost = (
-                    backward_prefix[0] - backward_prefix[x + 1] + backward_prefix[y + 1]
+                    backward_prefix[-1] - backward_prefix[y] + backward_prefix[x]
                 )
             else:
                 forward_cost = (
                     forward_prefix[-1] - forward_prefix[x] + forward_prefix[y]
                 )
-                backward_cost = backward_prefix[y + 1] - backward_prefix[x + 1]
-
+                backward_cost = backward_prefix[x] - backward_prefix[y]
             res += min(forward_cost, backward_cost)
             x = y
         return res
