@@ -28,19 +28,14 @@ def merge(s1: str, s2: str) -> dict[str, str]:
 
     def union(x: int, y: int):
         fx, fy = find(x), find(y)
+        if fy < fx:
+            fx, fy = fy, fx
         fa[fy] = fx
 
     for x, y in zip(s1, s2):
         union(ord(x) - ord("a"), ord(y) - ord("a"))
 
-    groups = defaultdict(list)
-    for i in range(26):
-        groups[chr(find(i) + ord("a"))].append(chr(i + ord("a")))
-
-    for g in groups:
-        groups[g].sort()
-
-    return {ch: g[0] for g in groups.values() for ch in g}
+    return {chr(i + ord("a")): chr(find(i) + ord("a")) for i in range(26)}
 
     # mp1 = defaultdict(list)
     # mp2 = defaultdict(list)
