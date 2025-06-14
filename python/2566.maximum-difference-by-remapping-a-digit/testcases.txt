@@ -1,0 +1,9 @@
+input:
+11891
+output:
+99009
+
+input:
+90
+output:
+99
