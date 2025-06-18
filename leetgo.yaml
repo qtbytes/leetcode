@@ -19,7 +19,7 @@ code:
         from operator import xor
         from pprint import pprint
         from string import ascii_lowercase
-        from typing import List, Optional
+        from typing import Iterable, List, Optional
   go:
     modifiers:
       - name: removeUselessComments
