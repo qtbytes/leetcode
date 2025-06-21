@@ -1,0 +1,17 @@
+input:
+"aabcaba"
+0
+output:
+3
+
+input:
+"dabdcbdcdcd"
+2
+output:
+2
+
+input:
+"aaabaaa"
+2
+output:
+1
