@@ -1,0 +1,9 @@
+input:
+5
+output:
+"b"
+
+input:
+10
+output:
+"c"
