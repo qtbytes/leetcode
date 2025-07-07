@@ -1,0 +1,26 @@
+[[bin]]
+name = 'coupon-code-validator'
+path = 'src/weekly-457/1.coupon-code-validator/solution.rs'
+
+[[bin]]
+name = 'power-grid-maintenance'
+path = 'src/weekly-457/2.power-grid-maintenance/solution.rs'
+
+[[bin]]
+name = 'minimum-time-for-k-connected-components'
+path = 'src/weekly-457/3.minimum-time-for-k-connected-components/solution.rs'
+
+[[bin]]
+name = 'minimum-moves-to-reach-target-in-grid'
+path = 'src/weekly-457/4.minimum-moves-to-reach-target-in-grid/solution.rs'
+
+[dependencies]
+anyhow = '1.0.79'
+leetgo-rs = '0.2.1'
+serde = '1.0.196'
+serde_json = '1.0.113'
+
+[package]
+edition = '2024'
+name = 'leetcode-solutions'
+version = '0.1.0'

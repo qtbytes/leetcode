@@ -3,3 +3,4 @@ python/local
 .env
 .vscode
 rust/target
+contest/target
