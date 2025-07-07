@@ -2,3 +2,4 @@ python/local
 
 .env
 .vscode
+rust/target
