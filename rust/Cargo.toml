@@ -2,6 +2,10 @@
 name = 'maximum-number-of-events-that-can-be-attended'
 path = 'src/1353.maximum-number-of-events-that-can-be-attended/solution.rs'
 
+[[bin]]
+name = 'maximum-number-of-events-that-can-be-attended-ii'
+path = 'src/1751.maximum-number-of-events-that-can-be-attended-ii/solution.rs'
+
 [dependencies]
 anyhow = '1.0.79'
 leetgo-rs = '0.2.1'
