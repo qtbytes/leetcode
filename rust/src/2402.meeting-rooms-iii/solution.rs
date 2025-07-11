@@ -18,42 +18,35 @@ impl Solution {
     pub fn most_booked(n: i32, meetings: Vec<Vec<i32>>) -> i32 {
         let n = n as usize;
         let mut cnt = vec![0; n];
-        let mut meetings: Vec<Vec<i64>> = meetings
-            .into_iter()
-            .map(|e| e.into_iter().map(|x| x as i64).collect())
-            .collect();
-        meetings.sort();
+        let mut meetings = meetings;
+        meetings.sort_unstable();
         // println!("{:?}", meetings);
 
         let mut free_room = BinaryHeap::from_iter((0..n).map(|i| Reverse(i)));
-        let mut used_room: BinaryHeap<Reverse<(_, usize)>> = BinaryHeap::new();
+        let mut used_room: BinaryHeap<Reverse<(i64, usize)>> = BinaryHeap::new();
 
-        let m = meetings.len();
-        let mut i = 0;
-        let mut t = 0;
-
-        // use room
-        while i < m {
-            let (start, end) = (meetings[i][0], meetings[i][1]);
-            t = t.max(start);
-            if free_room.is_empty() {
-                // skip to earlier time can release room
-                t = t.max(used_room.peek().unwrap().0.0)
-            }
-            // release room
-            while let Some(Reverse((time, x))) = used_room.peek() {
-                if *time > t {
+        for m in &meetings {
+            while let Some(Reverse((end, i))) = used_room.peek() {
+                if *end <= m[0] as i64 {
+                    free_room.push(Reverse(*i));
+                    used_room.pop();
+                } else {
                     break;
                 }
-                // println!("Release room {} at {t}", x);
-                free_room.push(Reverse(*x));
-                used_room.pop();
             }
-            let x = free_room.pop().unwrap().0;
-            // println!("Use room {} at {}", x, t);
-            cnt[x] += 1;
-            used_room.push(Reverse((t + end - start, x)));
-            i += 1;
+            let i;
+            let end;
+            if free_room.is_empty() {
+                // skip to first time can release room
+                let room = used_room.pop().unwrap().0;
+                end = room.0 + (m[1] - m[0]) as i64;
+                i = room.1;
+            } else {
+                i = free_room.pop().unwrap().0;
+                end = m[1] as i64;
+            }
+            cnt[i] += 1;
+            used_room.push(Reverse((end, i)));
         }
 
         let mut i = 0;
@@ -63,7 +56,7 @@ impl Solution {
             }
         }
         // println!("{cnt:?} {}", cnt[i]);
-        assert_eq!(cnt.iter().sum::<i32>(), meetings.len() as i32);
+        // assert_eq!(cnt.iter().sum::<i32>(), meetings.len() as i32);
 
         i as i32
     }
