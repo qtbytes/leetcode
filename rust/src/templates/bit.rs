@@ -1,18 +1,7 @@
-// Created by none at 2025/07/14 14:05
-// leetgo: dev
-// https://leetcode.com/problems/count-of-smaller-numbers-after-self/
-
-#![allow(unused_imports)]
-
-use anyhow::Result;
-use leetgo_rs::*;
-
-struct Solution;
-
-// @lc code=begin
-use std::cmp::Reverse;
-use std::collections::*;
-use std::mem::swap;
+// bit.rs
+// Binary Indexed Tree (Fenwick Tree) implementation
+// Supports point updates and prefix sum queries
+// 1-based indexing
 
 #[derive(Default)]
 pub struct BIT<T> {
@@ -60,31 +49,4 @@ where
         }
         res
     }
-}
-
-impl Solution {
-    pub fn count_smaller(nums: Vec<i32>) -> Vec<i32> {
-        let n = nums.len();
-        let mut res = vec![0; n];
-        let m = 1e4 as i32;
-        let mut count = BIT::new(m as usize * 2 + 1);
-
-        for i in (0..n).rev() {
-            let x = (nums[i] + m) as usize + 1;
-            res[i] = count.query(x - 1);
-            count.add(x, 1);
-        }
-
-        res
-    }
-}
-
-// @lc code=end
-
-fn main() -> Result<()> {
-    let nums: Vec<i32> = deserialize(&read_line()?)?;
-    let ans: Vec<i32> = Solution::count_smaller(nums).into();
-
-    println!("\noutput: {}", serialize(ans)?);
-    Ok(())
 }
