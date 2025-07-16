@@ -27,6 +27,10 @@ name = 'find-the-maximum-length-of-valid-subsequence-i'
 path = 'src/3201.find-the-maximum-length-of-valid-subsequence-i/solution.rs'
 
 [[bin]]
+name = 'find-the-maximum-length-of-valid-subsequence-ii'
+path = 'src/3202.find-the-maximum-length-of-valid-subsequence-ii/solution.rs'
+
+[[bin]]
 name = 'reschedule-meetings-for-maximum-free-time-i'
 path = 'src/3439.reschedule-meetings-for-maximum-free-time-i/solution.rs'
 
