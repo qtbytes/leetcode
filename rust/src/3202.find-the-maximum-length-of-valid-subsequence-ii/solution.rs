@@ -16,51 +16,25 @@ use std::mem::swap;
 
 impl Solution {
     pub fn maximum_length(nums: Vec<i32>, k: i32) -> i32 {
-        let n = nums.len();
         if k == 1 {
-            return n as _;
+            return nums.len() as _;
         }
-        let mut idx = vec![vec![]; k as usize];
-        nums.into_iter().enumerate().for_each(|(i, x)| {
-            idx[(x % k) as usize].push(i);
-        });
+        let k = k as usize;
+        let mut dp = vec![vec![0; k]; k];
 
-        let mut res = idx.iter().map(|v| v.len()).max().unwrap();
-
-        for (x, a) in idx.iter().enumerate() {
-            if a.is_empty() {
-                continue;
-            }
-
-            for y in x + 1..idx.len() {
-                let b = &idx[y];
-                if b.is_empty() {
-                    continue;
-                }
-                let mut i = 0;
-                let mut j = 0;
-                let mut cur = 1;
-                let mut flg = 0b11;
-                while i < a.len() && j < b.len() {
-                    if a[i] < b[j] {
-                        i += 1;
-                        if flg & 1 != 0 {
-                            flg = 0b10;
-                            cur += 1;
-                        }
-                    } else {
-                        j += 1;
-                        if flg & 0b10 != 0 {
-                            flg = 1;
-                            cur += 1;
-                        }
-                    }
-                }
-                res = res.max(cur)
+        for j in 0..k {
+            for &x in &nums {
+                let x = (x as usize) % k;
+                let y = (j + k - x) % k;
+                dp[j][x] = dp[j][x].max(1 + dp[j][y]);
+                // assert!((x + y) % k == j);
             }
         }
 
-        res as _
+        dp.into_iter()
+            .map(|row| row.into_iter().max().unwrap())
+            .max()
+            .unwrap()
     }
 }
 
