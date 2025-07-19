@@ -3,6 +3,10 @@ name = 'count-of-smaller-numbers-after-self'
 path = 'src/0315.count-of-smaller-numbers-after-self/solution.rs'
 
 [[bin]]
+name = 'remove-sub-folders-from-the-filesystem'
+path = 'src/1233.remove-sub-folders-from-the-filesystem/solution.rs'
+
+[[bin]]
 name = 'convert-binary-number-in-a-linked-list-to-integer'
 path = 'src/1290.convert-binary-number-in-a-linked-list-to-integer/solution.rs'
 
