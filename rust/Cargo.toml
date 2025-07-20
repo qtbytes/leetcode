@@ -19,6 +19,10 @@ name = 'maximum-number-of-events-that-can-be-attended-ii'
 path = 'src/1751.maximum-number-of-events-that-can-be-attended-ii/solution.rs'
 
 [[bin]]
+name = 'delete-duplicate-folders-in-system'
+path = 'src/1948.delete-duplicate-folders-in-system/solution.rs'
+
+[[bin]]
 name = 'minimum-difference-in-sums-after-removal-of-elements'
 path = 'src/2163.minimum-difference-in-sums-after-removal-of-elements/solution.rs'
 
