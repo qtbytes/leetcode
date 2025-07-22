@@ -15,6 +15,10 @@ name = 'maximum-number-of-events-that-can-be-attended'
 path = 'src/1353.maximum-number-of-events-that-can-be-attended/solution.rs'
 
 [[bin]]
+name = 'maximum-erasure-value'
+path = 'src/1695.maximum-erasure-value/solution.rs'
+
+[[bin]]
 name = 'maximum-number-of-events-that-can-be-attended-ii'
 path = 'src/1751.maximum-number-of-events-that-can-be-attended-ii/solution.rs'
 
