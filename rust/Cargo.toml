@@ -19,6 +19,10 @@ name = 'maximum-erasure-value'
 path = 'src/1695.maximum-erasure-value/solution.rs'
 
 [[bin]]
+name = 'maximum-score-from-removing-substrings'
+path = 'src/1717.maximum-score-from-removing-substrings/solution.rs'
+
+[[bin]]
 name = 'maximum-number-of-events-that-can-be-attended-ii'
 path = 'src/1751.maximum-number-of-events-that-can-be-attended-ii/solution.rs'
 
