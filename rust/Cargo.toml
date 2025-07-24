@@ -35,6 +35,10 @@ name = 'minimum-difference-in-sums-after-removal-of-elements'
 path = 'src/2163.minimum-difference-in-sums-after-removal-of-elements/solution.rs'
 
 [[bin]]
+name = 'minimum-score-after-removals-on-a-tree'
+path = 'src/2322.minimum-score-after-removals-on-a-tree/solution.rs'
+
+[[bin]]
 name = 'meeting-rooms-iii'
 path = 'src/2402.meeting-rooms-iii/solution.rs'
 
