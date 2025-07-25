@@ -62,6 +62,10 @@ path = 'src/3439.reschedule-meetings-for-maximum-free-time-i/solution.rs'
 name = 'reschedule-meetings-for-maximum-free-time-ii'
 path = 'src/3440.reschedule-meetings-for-maximum-free-time-ii/solution.rs'
 
+[[bin]]
+name = 'maximum-unique-subarray-sum-after-deletion'
+path = 'src/3487.maximum-unique-subarray-sum-after-deletion/solution.rs'
+
 [dependencies]
 anyhow = '1.0.79'
 leetgo-rs = '0.2.1'
