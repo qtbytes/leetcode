@@ -43,6 +43,10 @@ name = 'meeting-rooms-iii'
 path = 'src/2402.meeting-rooms-iii/solution.rs'
 
 [[bin]]
+name = 'smallest-subarrays-with-maximum-bitwise-or'
+path = 'src/2411.smallest-subarrays-with-maximum-bitwise-or/solution.rs'
+
+[[bin]]
 name = 'valid-word'
 path = 'src/3136.valid-word/solution.rs'
 
