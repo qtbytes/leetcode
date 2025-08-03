@@ -35,6 +35,10 @@ name = 'delete-duplicate-folders-in-system'
 path = 'src/1948.delete-duplicate-folders-in-system/solution.rs'
 
 [[bin]]
+name = 'maximum-fruits-harvested-after-at-most-k-steps'
+path = 'src/2106.maximum-fruits-harvested-after-at-most-k-steps/solution.rs'
+
+[[bin]]
 name = 'minimum-difference-in-sums-after-removal-of-elements'
 path = 'src/2163.minimum-difference-in-sums-after-removal-of-elements/solution.rs'
 
