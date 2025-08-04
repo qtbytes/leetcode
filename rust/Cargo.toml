@@ -7,6 +7,10 @@ name = 'bitwise-ors-of-subarrays'
 path = 'src/0898.bitwise-ors-of-subarrays/solution.rs'
 
 [[bin]]
+name = 'fruit-into-baskets'
+path = 'src/0904.fruit-into-baskets/solution.rs'
+
+[[bin]]
 name = 'remove-sub-folders-from-the-filesystem'
 path = 'src/1233.remove-sub-folders-from-the-filesystem/solution.rs'
 
