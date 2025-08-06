@@ -30,7 +30,7 @@ code:
   blocks:
     - name: beforeCode
       template: |
-        use std::cmp::Reverse;
+        use std::cmp::{Reverse, max, min};
         use std::collections::*;
         use std::mem::swap;
 leetcode:
