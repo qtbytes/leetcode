@@ -83,6 +83,10 @@ name = 'reschedule-meetings-for-maximum-free-time-ii'
 path = 'src/3440.reschedule-meetings-for-maximum-free-time-ii/solution.rs'
 
 [[bin]]
+name = 'fruits-into-baskets-iii'
+path = 'src/3479.fruits-into-baskets-iii/solution.rs'
+
+[[bin]]
 name = 'maximum-unique-subarray-sum-after-deletion'
 path = 'src/3487.maximum-unique-subarray-sum-after-deletion/solution.rs'
 
