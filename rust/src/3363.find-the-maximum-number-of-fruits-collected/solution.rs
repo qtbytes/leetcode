@@ -14,11 +14,6 @@ use std::cmp::{Reverse, max, min};
 use std::collections::*;
 use std::mem::swap;
 
-// Right { dx: usize, dy: usize },
-// Down { dx: usize, dy: usize },
-// TopRight { dx: usize, dy: usize },
-// DownRight { dx: usize, dy: usize },
-// DownLeft { dx: usize, dy: usize },
 type Dirs = (usize, usize);
 
 impl Solution {
