@@ -3,6 +3,10 @@ name = 'count-of-smaller-numbers-after-self'
 path = 'src/0315.count-of-smaller-numbers-after-self/solution.rs'
 
 [[bin]]
+name = 'soup-servings'
+path = 'src/0808.soup-servings/solution.rs'
+
+[[bin]]
 name = 'bitwise-ors-of-subarrays'
 path = 'src/0898.bitwise-ors-of-subarrays/solution.rs'
 
