@@ -1,0 +1,14 @@
+input:
+1
+output:
+true
+
+input:
+10
+output:
+false
+
+input:
+46
+output:
+true
