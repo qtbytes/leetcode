@@ -67,6 +67,10 @@ name = 'smallest-subarrays-with-maximum-bitwise-or'
 path = 'src/2411.smallest-subarrays-with-maximum-bitwise-or/solution.rs'
 
 [[bin]]
+name = 'range-product-queries-of-powers'
+path = 'src/2438.range-product-queries-of-powers/solution.rs'
+
+[[bin]]
 name = 'rearranging-fruits'
 path = 'src/2561.rearranging-fruits/solution.rs'
 
