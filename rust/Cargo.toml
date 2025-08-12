@@ -75,6 +75,10 @@ name = 'rearranging-fruits'
 path = 'src/2561.rearranging-fruits/solution.rs'
 
 [[bin]]
+name = 'ways-to-express-an-integer-as-sum-of-powers'
+path = 'src/2787.ways-to-express-an-integer-as-sum-of-powers/solution.rs'
+
+[[bin]]
 name = 'valid-word'
 path = 'src/3136.valid-word/solution.rs'
 
