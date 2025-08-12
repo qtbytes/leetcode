@@ -36,15 +36,11 @@ impl Solution {
         let mut dp = vec![0; n + 1];
         dp[0] = 1;
         for &number in &can {
-            for target in (1..=n).rev() {
-                if target >= number {
-                    dp[target] += dp[target - number];
-                    dp[target] %= MOD;
-                }
+            for target in (number..=n).rev() {
+                dp[target] = (dp[target] + dp[target - number]) % MOD;
             }
         }
 
-        // println!("{can:?} {dp:?} ");
         dp[n]
     }
 }
