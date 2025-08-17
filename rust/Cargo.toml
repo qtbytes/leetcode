@@ -7,6 +7,10 @@ name = 'soup-servings'
 path = 'src/0808.soup-servings/solution.rs'
 
 [[bin]]
+name = 'new-21-game'
+path = 'src/0837.new-21-game/solution.rs'
+
+[[bin]]
 name = 'reordered-power-of-2'
 path = 'src/0869.reordered-power-of-2/solution.rs'
 
