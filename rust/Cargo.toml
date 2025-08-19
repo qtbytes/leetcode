@@ -63,6 +63,10 @@ name = 'minimum-score-after-removals-on-a-tree'
 path = 'src/2322.minimum-score-after-removals-on-a-tree/solution.rs'
 
 [[bin]]
+name = 'number-of-zero-filled-subarrays'
+path = 'src/2348.number-of-zero-filled-subarrays/solution.rs'
+
+[[bin]]
 name = 'meeting-rooms-iii'
 path = 'src/2402.meeting-rooms-iii/solution.rs'
 
