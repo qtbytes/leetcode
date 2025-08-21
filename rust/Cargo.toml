@@ -35,6 +35,10 @@ name = 'maximum-number-of-events-that-can-be-attended'
 path = 'src/1353.maximum-number-of-events-that-can-be-attended/solution.rs'
 
 [[bin]]
+name = 'count-submatrices-with-all-ones'
+path = 'src/1504.count-submatrices-with-all-ones/solution.rs'
+
+[[bin]]
 name = 'maximum-erasure-value'
 path = 'src/1695.maximum-erasure-value/solution.rs'
 
