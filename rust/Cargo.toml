@@ -99,6 +99,10 @@ name = 'find-the-minimum-area-to-cover-all-ones-i'
 path = 'src/3195.find-the-minimum-area-to-cover-all-ones-i/solution.rs'
 
 [[bin]]
+name = 'find-the-minimum-area-to-cover-all-ones-ii'
+path = 'src/3197.find-the-minimum-area-to-cover-all-ones-ii/solution.rs'
+
+[[bin]]
 name = 'find-the-maximum-length-of-valid-subsequence-i'
 path = 'src/3201.find-the-maximum-length-of-valid-subsequence-i/solution.rs'
 
