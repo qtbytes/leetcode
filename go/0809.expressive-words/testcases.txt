@@ -1,0 +1,11 @@
+input:
+"heeellooo"
+["hello", "hi", "helo"]
+output:
+1
+
+input:
+"zzzzzyyyyy"
+["zzyy","zy","zyy"]
+output:
+3
