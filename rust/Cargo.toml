@@ -3,6 +3,10 @@ name = 'count-of-smaller-numbers-after-self'
 path = 'src/0315.count-of-smaller-numbers-after-self/solution.rs'
 
 [[bin]]
+name = 'diagonal-traverse'
+path = 'src/0498.diagonal-traverse/solution.rs'
+
+[[bin]]
 name = 'soup-servings'
 path = 'src/0808.soup-servings/solution.rs'
 
