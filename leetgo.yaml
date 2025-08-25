@@ -27,12 +27,12 @@ code:
       # - name: addNamedReturn
       # - name: addMod       
   rust:
-  blocks:
-    - name: beforeCode
-      template: |
-        use std::cmp::{Reverse, max, min};
-        use std::collections::*;
-        use std::mem::swap;
+    blocks:
+      - name: beforeCode
+        template: |
+          use std::cmp::{Reverse, max, min};
+          use std::collections::*;
+          use std::mem::swap;
 leetcode:
   site: https://leetcode.com
   credentials:
