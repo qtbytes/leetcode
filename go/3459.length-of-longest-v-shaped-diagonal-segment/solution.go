@@ -35,9 +35,6 @@ func lenOfVDiagonal(grid [][]int) int {
 
 	var dfs func(i, j int, dx, dy int, canTurn bool) int
 	dfs = func(i, j, dx, dy int, canTurn bool) int {
-		if !valid(i, j) {
-			return 0
-		}
 		item := Item{i, j, dx, dy, canTurn}
 		if res, ok := memo[item]; ok {
 			return res
