@@ -16,57 +16,56 @@ import (
 // @lc code=begin
 type Item struct {
 	delta float64
-	x     int
-	y     int
+	x, y  int
 }
 
-type Heap struct {
-	q []Item
+type Heap []Item
+
+func (h Heap) Len() int {
+	return len(h)
 }
 
-func (h *Heap) Len() int {
-	return len(h.q)
-}
-
-func (h *Heap) Less(i, j int) bool {
-	return (*h).q[i].delta > (*h).q[j].delta
+func (h Heap) Less(i, j int) bool {
+	return h[i].delta > h[j].delta
 }
 
 func (h *Heap) Push(item any) {
-	(*h).q = append((*h).q, item.(Item))
+	*h = append((*h), item.(Item))
 }
 
 func (h *Heap) Pop() any {
-	item := (*h).q[h.Len()-1]
-	(*h).q = (*h).q[:h.Len()-1]
+	item := (*h)[h.Len()-1]
+	*h = (*h)[:h.Len()-1]
 	return item
 }
 
 func (h *Heap) Swap(i int, j int) {
-	(*h).q[i], (*h).q[j] = (*h).q[j], (*h).q[i]
+	(*h)[i], (*h)[j] = (*h)[j], (*h)[i]
 }
 
 func maxAverageRatio(classes [][]int, extraStudents int) float64 {
-	h := &Heap{}
-	heap.Init(h)
-	for _, c := range classes {
+	n := len(classes)
+
+	h := make(Heap, n)
+	for i, c := range classes {
 		x, y := c[0], c[1]
-		heap.Push(h, Item{float64(y-x) / float64(y+1) / float64(y), x, y})
+		h[i] = Item{float64(y-x) / float64(y+1) / float64(y), x, y}
 	}
+	heap.Init(&h)
 
 	for range extraStudents {
-		item := heap.Pop(h).(Item)
-		x, y := item.x+1, item.y+1
-		heap.Push(h, Item{float64(y-x) / float64(y+1) / float64(y), x, y})
+		h[0].x++
+		h[0].y++
+		x, y := h[0].x, h[0].y
+		h[0].delta = float64(y-x) / float64(y+1) / float64(y)
+		heap.Fix(&h, 0)
 	}
 
 	res := 0.0
-
-	for _, item := range (*h).q {
+	for _, item := range h {
 		res += float64(item.x) / float64(item.y)
 	}
-
-	return res / float64(len(classes))
+	return res / float64(n)
 }
 
 // @lc code=end
