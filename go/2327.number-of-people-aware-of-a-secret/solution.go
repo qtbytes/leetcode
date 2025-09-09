@@ -16,22 +16,21 @@ import (
 const MOD = int(1e9) + 7
 
 func peopleAwareOfSecret(n int, delay int, forget int) int {
+	// diff means how many people know secret in day i
 	diff := make([]int, 2*n+1)
 	diff[1] = 1
+	diff[2] = -1
 	d := 0
+	res := 0
 	for x := 1; x <= n; x++ {
-		if diff[x] > 0 {
-			for y := x + delay; y < x+forget; y++ {
-				diff[y] = (diff[y] + diff[x]) % MOD
-			}
-			if x+forget <= n {
-				// will forget
-			} else {
-				d += diff[x]
-			}
+		d = (d + diff[x]) % MOD
+		if x+forget > n {
+			res += d
 		}
+		diff[x+delay] += d
+		diff[x+forget] -= d
 	}
-	return d % MOD
+	return (res%MOD + MOD) % MOD
 }
 
 // @lc code=end

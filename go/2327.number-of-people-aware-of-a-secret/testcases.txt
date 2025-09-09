@@ -18,3 +18,10 @@ input:
 2
 output:
 2
+
+input:
+289
+7
+23
+output:
+790409951
