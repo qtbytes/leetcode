@@ -1,7 +1,7 @@
 author: none
 language: en
 code:
-  lang: go
+  lang: random
   cpp:
     cxx: clang++
     cxxflags: -O2 -std=c++23
