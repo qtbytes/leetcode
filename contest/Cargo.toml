@@ -14,6 +14,10 @@ path = 'src/weekly-457/3.minimum-time-for-k-connected-components/solution.rs'
 name = 'minimum-moves-to-reach-target-in-grid'
 path = 'src/weekly-457/4.minimum-moves-to-reach-target-in-grid/solution.rs'
 
+[[bin]]
+name = 'maximum-total-subarray-value-ii'
+path = 'src/weekly-468/4.maximum-total-subarray-value-ii/solution.rs'
+
 [dependencies]
 anyhow = '1.0.79'
 leetgo-rs = '0.2.1'
