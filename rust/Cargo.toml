@@ -59,6 +59,10 @@ name = 'maximum-number-of-events-that-can-be-attended-ii'
 path = 'src/1751.maximum-number-of-events-that-can-be-attended-ii/solution.rs'
 
 [[bin]]
+name = 'design-movie-rental-system'
+path = 'src/1912.design-movie-rental-system/solution.rs'
+
+[[bin]]
 name = 'delete-duplicate-folders-in-system'
 path = 'src/1948.delete-duplicate-folders-in-system/solution.rs'
 
