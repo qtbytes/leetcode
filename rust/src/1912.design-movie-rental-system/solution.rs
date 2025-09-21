@@ -43,7 +43,7 @@ impl MovieRentingSystem {
     // should be returned. If no shop has an unrented copy, then an empty list should be returned.
     fn search(&mut self, movie: i32) -> Vec<i32> {
         if let Some(root) = self.movie_to_shop.get(&movie) {
-            return root.iter().take(5).clone().map(|item| item.1).collect();
+            return root.iter().take(5).map(|item| item.1).collect();
         }
         vec![]
     }
@@ -79,7 +79,6 @@ impl MovieRentingSystem {
         self.rented
             .iter()
             .take(5)
-            .clone()
             .map(|item| vec![item.1, item.2])
             .collect()
     }
