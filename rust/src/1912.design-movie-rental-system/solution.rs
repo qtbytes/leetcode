@@ -14,11 +14,9 @@ use std::mem::swap;
 
 #[derive(Default)]
 struct MovieRentingSystem {
-    movie_to_shop: HashMap<i32, BinaryHeap<(i32, i32)>>, // (moive: (-price, -shop))
-    deleted1: HashSet<(i32, i32)>, // store items need to delete for movie_to_heap
-    shop_to_movie: HashMap<i32, HashMap<i32, i32>>, // (shop: (movie: price))
-    rented_heap: BinaryHeap<(i32, i32, i32)>, // (-price, -shop, -movie)
-    deleted2: HashSet<(i32, i32, i32)>, // store items need to delete for rented_heap
+    movie_to_shop: HashMap<i32, BTreeSet<(i32, i32)>>, // (moive: (price, shop))
+    price: HashMap<(i32, i32), i32>,                   // ((shop,movie): price)
+    rented: BTreeSet<(i32, i32, i32)>,                 // (price, shop, movie)
 }
 
 /**
@@ -28,17 +26,13 @@ struct MovieRentingSystem {
 impl MovieRentingSystem {
     fn new(_n: i32, entries: Vec<Vec<i32>>) -> Self {
         let mut mrs = MovieRentingSystem::default();
-        //  `entries[i] = [shopᵢ, movieᵢ, priceᵢ]`
         for e in entries {
             let (shop, movie, price) = (e[0], e[1], e[2]);
             mrs.movie_to_shop
                 .entry(movie)
                 .or_default()
-                .push((-price, -shop));
-            mrs.shop_to_movie
-                .entry(shop)
-                .or_default()
-                .insert(movie, price);
+                .insert((price, shop));
+            mrs.price.insert((shop, movie), price);
         }
         mrs
     }
@@ -48,50 +42,29 @@ impl MovieRentingSystem {
     // **smaller** `shopᵢ` should appear first. If there are less than 5 matching shops, then all of them
     // should be returned. If no shop has an unrented copy, then an empty list should be returned.
     fn search(&mut self, movie: i32) -> Vec<i32> {
-        let mut res = vec![];
-        let mut restore = vec![];
-        if let Some(heap) = self.movie_to_shop.get_mut(&movie) {
-            for _ in 0..5 {
-                while let Some(m) = heap.pop() {
-                    if self.deleted1.contains(&m) {
-                        self.deleted1.remove(&m);
-                        continue;
-                    }
-                    res.push(-m.1);
-                    restore.push(m);
-                    break;
-                }
-            }
-            for m in restore {
-                heap.push(m);
-            }
+        if let Some(root) = self.movie_to_shop.get(&movie) {
+            return root.iter().take(5).clone().map(|item| item.1).collect();
         }
-        res
+        vec![]
     }
 
     // - **Rent**: Rents an **unrented copy** of a given movie from a given shop.
     fn rent(&mut self, shop: i32, movie: i32) {
-        let price = self.shop_to_movie[&shop][&movie];
-
-        self.deleted1.insert((-price, -shop));
-
-        if !self.deleted2.remove(&(-price, -shop, -movie)) {
-            self.rented_heap.push((-price, -shop, -movie));
+        let price = self.price[&(shop, movie)];
+        if let Some(root) = self.movie_to_shop.get_mut(&movie) {
+            root.remove(&(price, shop));
         }
+        self.rented.insert((price, shop, movie));
     }
 
     // - **Drop**: Drops off a **previously rented copy** of a given movie at a given shop.
     fn drop(&mut self, shop: i32, movie: i32) {
-        let price = self.shop_to_movie[&shop][&movie];
-
-        if !self.deleted1.remove(&(-price, -shop)) {
-            self.movie_to_shop
-                .entry(movie)
-                .or_default()
-                .push((-price, -shop));
-        }
-
-        self.deleted2.insert((-price, -shop, -movie));
+        let price = self.price[&(shop, movie)];
+        self.movie_to_shop
+            .get_mut(&movie)
+            .unwrap()
+            .insert((price, shop));
+        self.rented.remove(&(price, shop, movie));
     }
 
     // - **Report**: Returns the **cheapest 5 rented movies** (possibly of the same movie ID) as a 2D list
@@ -103,27 +76,12 @@ impl MovieRentingSystem {
     // empty list should be returned.
 
     fn report(&mut self) -> Vec<Vec<i32>> {
-        let mut res = vec![];
-        let mut restore = vec![];
-
-        for _ in 0..5 {
-            while let Some(item) = self.rented_heap.pop() {
-                if self.deleted2.contains(&item) {
-                    self.deleted2.remove(&item);
-                    continue;
-                }
-                let (_, shop, movie) = (-item.0, -item.1, -item.2);
-                res.push(vec![shop, movie]);
-                restore.push(item);
-                break;
-            }
-        }
-
-        for item in restore {
-            self.rented_heap.push(item);
-        }
-
-        res
+        self.rented
+            .iter()
+            .take(5)
+            .clone()
+            .map(|item| vec![item.1, item.2])
+            .collect()
     }
 }
 
