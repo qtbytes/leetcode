@@ -12,3 +12,8 @@ input:
 [4,-1]
 output:
 2
+
+input:
+[-99,56,56,84]
+output:
+25

@@ -21,13 +21,11 @@ from leetgo_py import *
 
 class Solution:
     def smallestAbsent(self, nums: List[int]) -> int:
-        s = sum(nums)
-        n = len(nums)
-        nums_set = set(nums)
-        for x in count(1):
-            if x not in nums_set and x * n > s:
-                return x
-        return -1
+        res = max(1, sum(nums) // len(nums) + 1)
+        nums = set(nums)
+        while res in nums:
+            res += 1
+        return res
 
 
 # @lc code=end
