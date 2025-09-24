@@ -1,0 +1,14 @@
+input:
+[1,2,3]
+output:
+3
+
+input:
+[5,2]
+output:
+7
+
+input:
+[748,615]
+output:
+748
