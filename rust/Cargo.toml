@@ -1,4 +1,8 @@
 [[bin]]
+name = 'fraction-to-recurring-decimal'
+path = 'src/0166.fraction-to-recurring-decimal/solution.rs'
+
+[[bin]]
 name = 'count-of-smaller-numbers-after-self'
 path = 'src/0315.count-of-smaller-numbers-after-self/solution.rs'
 
