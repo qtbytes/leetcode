@@ -8,7 +8,6 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"slices"
 
 	. "github.com/j178/leetgo/testutils/go"
 )
@@ -16,21 +15,13 @@ import (
 // @lc code=begin
 
 func minimumTotal(triangle [][]int) int {
-	prev := make([]int, 1)
-	for _, row := range triangle {
-		dp := make([]int, len(row))
-		for j, x := range row {
-			if j == 0 {
-				dp[j] = prev[j] + x
-			} else if j < len(prev) {
-				dp[j] = min(prev[j], prev[j-1]) + x
-			} else {
-				dp[j] = prev[j-1] + x
-			}
+	n := len(triangle)
+	for i := n - 2; i >= 0; i-- {
+		for j := range i + 1 {
+			triangle[i][j] += min(triangle[i+1][j], triangle[i+1][j+1])
 		}
-		prev = dp
 	}
-	return slices.Min(prev)
+	return triangle[0][0]
 }
 
 // @lc code=end
