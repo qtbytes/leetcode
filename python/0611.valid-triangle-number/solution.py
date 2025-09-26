@@ -22,6 +22,7 @@ class Solution:
     def triangleNumber(self, nums: List[int]) -> int:
         nums.sort()
         n = len(nums)
+        # remove zero
         i = 0
         while i < n and nums[i] == 0:
             i += 1
@@ -30,15 +31,18 @@ class Solution:
 
         res = 0
         for i in range(n - 2):
+            k = i + 2
             for j in range(i + 1, n - 1):
-                # nums[i] + nums[j] > nums[k]
-                # while k < n and nums[i] + nums[j] >= nums[k]:
-                # k += 1
-                k = bisect_left(nums, nums[i] + nums[j])
-                # print(i, j, k, nums)
+                # k = bisect_left(nums, nums[i] + nums[j])
+                target = nums[i] + nums[j]
+                while k < n and nums[k] < target:
+                    k += 1
+                if k == n:
+                    # 1..=n-j-1
+                    res += (n - j) * (n - j - 1) // 2
+                    break
                 # can use [j+1:k]
                 res += k - j - 1
-                # early stop
         return res
 
 
