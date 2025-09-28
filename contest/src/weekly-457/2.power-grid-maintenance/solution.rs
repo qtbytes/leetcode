@@ -68,7 +68,7 @@ impl Solution {
                     group[id].pop();
                 }
                 if !group[id].is_empty() {
-                    res.push(group[id].last().map_or_else(|| -1, |x| (*x as i32)));
+                    res.push(group[id].last().map_or_else(|| -1, |x| *x as i32));
                 } else {
                     res.push(-1);
                 }
