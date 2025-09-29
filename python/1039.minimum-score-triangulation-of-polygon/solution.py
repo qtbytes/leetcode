@@ -19,25 +19,20 @@ from leetgo_py import *
 
 
 class Solution:
-    def minScoreTriangulation(self, values: List[int]) -> int:
+    def minScoreTriangulation(self, a: List[int]) -> int:
         @cache
-        def dfs(a: tuple[int]):
-            n = len(a)
-            if n < 3:
+        def dfs(l: int, r: int):
+            size = r - l + 1
+            if size < 3:
                 return 0
-            if n == 3:
-                return a[0] * a[1] * a[2]
+            if size == 3:
+                return a[l] * a[l + 1] * a[l + 2]
             res = inf
-            # select a point, x to from triangle [a[0], a[-1], x]
-            # x and y can't adjant
-            for x in range(1, n - 1):
-                part1 = a[: x + 1]
-                part2 = a[x:n]
-                # print(part1, part2)
-                res = min(res, a[0] * a[-1] * a[x] + dfs(part1) + dfs(part2))
+            for x in range(l + 1, r):
+                res = min(res, a[l] * a[r] * a[x] + dfs(l, x) + dfs(x, r))
             return res
 
-        return dfs(tuple(values))
+        return dfs(0, len(a) - 1)
 
 
 # @lc code=end
