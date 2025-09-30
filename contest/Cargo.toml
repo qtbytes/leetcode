@@ -1,4 +1,20 @@
 [[bin]]
+name = 'majority-frequency-characters'
+path = 'src/biweekly-166/1.majority-frequency-characters/solution.rs'
+
+[[bin]]
+name = 'climbing-stairs-ii'
+path = 'src/biweekly-166/2.climbing-stairs-ii/solution.rs'
+
+[[bin]]
+name = 'distinct-points-reachable-after-substring-removal'
+path = 'src/biweekly-166/3.distinct-points-reachable-after-substring-removal/solution.rs'
+
+[[bin]]
+name = 'maximize-alternating-sum-using-swaps'
+path = 'src/biweekly-166/4.maximize-alternating-sum-using-swaps/solution.rs'
+
+[[bin]]
 name = 'coupon-code-validator'
 path = 'src/weekly-457/1.coupon-code-validator/solution.rs'
 
