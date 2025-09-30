@@ -1,0 +1,14 @@
+input:
+"aaabbbccdddde"
+output:
+"ab"
+
+input:
+"abcd"
+output:
+"abcd"
+
+input:
+"pfpfgi"
+output:
+"fp"
