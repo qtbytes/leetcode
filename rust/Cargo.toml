@@ -83,6 +83,10 @@ name = 'minimum-difference-in-sums-after-removal-of-elements'
 path = 'src/2163.minimum-difference-in-sums-after-removal-of-elements/solution.rs'
 
 [[bin]]
+name = 'find-triangular-sum-of-an-array'
+path = 'src/2221.find-triangular-sum-of-an-array/solution.rs'
+
+[[bin]]
 name = 'minimum-score-after-removals-on-a-tree'
 path = 'src/2322.minimum-score-after-removals-on-a-tree/solution.rs'
 
