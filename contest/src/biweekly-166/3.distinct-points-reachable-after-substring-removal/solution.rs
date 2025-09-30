@@ -19,31 +19,25 @@ impl Solution {
     pub fn distinct_points(s: String, k: i32) -> i32 {
         let k = k as usize;
         let s: Vec<char> = s.chars().collect();
-        let mut cnt: HashMap<char, i32> = HashMap::new();
+        let map: HashMap<char, usize> =
+            HashMap::from_iter([('U', 0), ('D', 0), ('L', 1), ('R', 1)]);
 
-        fn update(cnt: &mut HashMap<char, i32>, ch: char, mut delta: i32) {
-            if ch == 'U' || ch == 'D' {
-                if ch == 'D' {
-                    delta *= -1;
-                }
-                *cnt.entry('U').or_default() += delta;
-                return;
-            }
-            if ch == 'R' {
-                delta *= -1;
-            }
-            *cnt.entry('L').or_default() += delta
+        let mut cnt = vec![0; 2];
+
+        fn update(cnt: &mut Vec<i32>, ch: char, delta: i32, map: &HashMap<char, usize>) {
+            let flg = if ch == 'U' || ch == 'L' { 1 } else { -1 };
+            cnt[map[&ch]] += flg * delta
         }
 
         for i in 0..k - 1 {
-            update(&mut cnt, s[i], 1);
+            update(&mut cnt, s[i], 1, &map);
         }
 
-        let mut diff: HashSet<Vec<(char, i32)>> = HashSet::new();
+        let mut diff: HashSet<Vec<i32>> = HashSet::new();
         for i in k - 1..s.len() {
-            update(&mut cnt, s[i], 1);
-            diff.insert(cnt.clone().into_iter().filter(|i| i.1 != 0).collect());
-            update(&mut cnt, s[i - (k - 1)], -1);
+            update(&mut cnt, s[i], 1, &map);
+            diff.insert(cnt.clone());
+            update(&mut cnt, s[i - (k - 1)], -1, &map);
         }
         // println!("{diff:?}");
 
