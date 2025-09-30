@@ -1,0 +1,17 @@
+input:
+4
+[1,2,3,4]
+output:
+13
+
+input:
+4
+[5,1,6,2]
+output:
+11
+
+input:
+3
+[9,8,3]
+output:
+12
