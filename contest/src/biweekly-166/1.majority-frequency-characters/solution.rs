@@ -27,17 +27,14 @@ impl Solution {
             freq.entry(f).or_default().push(ch);
         }
 
-        let max_size = freq.values().map(|v| v.len()).max().unwrap();
-
+        let mut max_size = 0;
         let mut max_f = 0;
         let mut res = &vec![];
 
         for (&f, v) in &freq {
-            if v.len() == max_size {
-                if f > max_f {
-                    max_f = f;
-                    res = v;
-                }
+            if (v.len(), f) > (max_size, max_f) {
+                (max_size, max_f) = (v.len(), f);
+                res = v;
             }
         }
 
