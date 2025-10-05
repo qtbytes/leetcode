@@ -21,40 +21,33 @@ from leetgo_py import *
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         m, n = len(heights), len(heights[0])
-        # top_left = [[False] * n for _ in range(m)]
-        # bot_right = [[False] * n for _ in range(m)]
 
-        res = []
-
-        def dfs(x: int, y: int):
-            top_left = bot_right = False
-            if x == 0 or y == 0:
-                top_left = True
-            if x == m - 1 or y == n - 1:
-                bot_right = True
-
-            if (x, y) in visited:
-                return visited[(x, y)]
-            # tag as visited
-            visited[(x, y)] = (top_left, bot_right)
-            if top_left and bot_right:
-                return True, True
-
+        def dfs(x: int, y: int, f: list[list[bool]]):
+            # can flow to border
+            if f[x][y]:
+                return
+            f[x][y] = True
             for dx, dy in pairwise((0, 1, 0, -1, 0)):
                 nx, ny = x + dx, y + dy
-                if 0 <= nx < m and 0 <= ny < n and heights[x][y] >= heights[nx][ny]:
-                    sub = dfs(nx, ny)
-                    top_left |= sub[0]
-                    bot_right |= sub[1]
+                # from lower to higher
+                if 0 <= nx < m and 0 <= ny < n and heights[x][y] <= heights[nx][ny]:
+                    dfs(nx, ny, f)
 
-            return top_left, bot_right
+        top_left = [[False] * n for _ in range(m)]
+        bot_right = [[False] * n for _ in range(m)]
 
-        for x in range(m):
-            for y in range(n):
-                visited = dict()
-                if all(ok for ok in dfs(x, y)):
-                    res.append([x, y])
+        for j in range(n):
+            dfs(0, j, top_left)
+            dfs(m - 1, j, bot_right)
+        for i in range(m):
+            dfs(i, 0, top_left)
+            dfs(i, n - 1, bot_right)
 
+        res = []
+        for i in range(m):
+            for j in range(n):
+                if top_left[i][j] and bot_right[i][j]:
+                    res.append([i, j])
         return res
 
 
