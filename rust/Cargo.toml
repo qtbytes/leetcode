@@ -11,6 +11,10 @@ name = 'diagonal-traverse'
 path = 'src/0498.diagonal-traverse/solution.rs'
 
 [[bin]]
+name = 'swim-in-rising-water'
+path = 'src/0778.swim-in-rising-water/solution.rs'
+
+[[bin]]
 name = 'soup-servings'
 path = 'src/0808.soup-servings/solution.rs'
 
