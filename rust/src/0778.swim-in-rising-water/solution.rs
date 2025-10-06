@@ -39,9 +39,12 @@ impl Solution {
                 return res;
             }
             for d in 0..4 {
-                let (x, y) = (i as i32 + dirs[d], j as i32 + dirs[d + 1]);
-                if 0 <= x && x < n as i32 && 0 <= y && y < n as i32 {
-                    add(&mut q, x as usize, y as usize, &mut grid);
+                let (x, y) = (
+                    i.wrapping_add_signed(dirs[d]),
+                    j.wrapping_add_signed(dirs[d + 1]),
+                );
+                if x < n && y < n {
+                    add(&mut q, x, y, &mut grid);
                 }
             }
         }
