@@ -8,15 +8,16 @@ import (
 	"bufio"
 	"fmt"
 	"os"
-	"sort"
 
+	"github.com/emirpasic/gods/v2/trees/redblacktree"
 	. "github.com/j178/leetgo/testutils/go"
 )
 
 // @lc code=begin
 
 func avoidFlood(rains []int) []int {
-	var canDry []int
+	canDry := redblacktree.New[int, bool]()
+
 	res := make([]int, len(rains))
 
 	for i := range res {
@@ -29,21 +30,21 @@ func avoidFlood(rains []int) []int {
 		if x > 0 {
 			if j, ok := hasWater[x]; ok {
 				// find the first index canDry[k] > j
-				k := sort.Search(len(canDry), func(i int) bool { return canDry[i] > j })
-				if k < len(canDry) {
-					res[canDry[k]] = x
-					canDry = append(canDry[:k], canDry[k+1:]...)
+				k, ok := canDry.Ceiling(j)
+				if ok {
+					res[k.Key] = x
+					canDry.Remove(k.Key)
 				} else {
 					return []int{}
 				}
 			}
 			hasWater[x] = i
 		} else {
-			canDry = append(canDry, i)
+			canDry.Put(i, true)
 		}
 	}
 
-	for _, i := range canDry {
+	for _, i := range canDry.Keys() {
 		res[i] = 1
 	}
 
