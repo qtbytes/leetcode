@@ -16,35 +16,25 @@ use std::mem::swap;
 
 impl Solution {
     pub fn min_time(skill: Vec<i32>, mana: Vec<i32>) -> i64 {
-        let mut pre = vec![0_i64; skill.len()];
+        let n = skill.len();
+        let mut sum = vec![0; n + 1];
 
-        let mut t = 0;
         for (i, &s) in skill.iter().enumerate() {
-            t += (mana[0] * s) as i64;
-            pre[i] = t
+            sum[i + 1] = s as i64 + sum[i];
         }
 
-        for j in 1..mana.len() {
-            let mut cur = vec![0_i64; skill.len()];
-
-            let mut t = 0;
-            for (i, &s) in skill.iter().enumerate() {
-                t += (mana[j] * s) as i64;
-                cur[i] = t;
+        let mut pre_t = 0;
+        let mut pre_m = 0;
+        for m in mana {
+            let m = m as i64;
+            let mut t = pre_t + pre_m * sum[1]; // the first wizard
+            for i in 0..n - 1 {
+                t = max(t, pre_t + pre_m * sum[i + 2] - sum[i + 1] * m)
             }
-
-            t = pre[0];
-            for i in 0..skill.len() - 1 {
-                t = max(t, pre[i + 1] - cur[i])
-            }
-            for (i, &s) in skill.iter().enumerate() {
-                t += (mana[j] * s) as i64;
-                cur[i] = t;
-            }
-            pre = cur;
+            pre_t = t;
+            pre_m = m;
         }
-
-        pre[skill.len() - 1]
+        pre_t + sum[n] * pre_m
     }
 }
 
