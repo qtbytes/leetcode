@@ -162,6 +162,10 @@ path = 'src/3479.fruits-into-baskets-iii/solution.rs'
 name = 'maximum-unique-subarray-sum-after-deletion'
 path = 'src/3487.maximum-unique-subarray-sum-after-deletion/solution.rs'
 
+[[bin]]
+name = 'find-the-minimum-amount-of-time-to-brew-potions'
+path = 'src/3494.find-the-minimum-amount-of-time-to-brew-potions/solution.rs'
+
 [dependencies]
 anyhow = '1.0.79'
 leetgo-rs = '0.2.1'
