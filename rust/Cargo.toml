@@ -139,6 +139,10 @@ name = 'find-the-maximum-length-of-valid-subsequence-ii'
 path = 'src/3202.find-the-maximum-length-of-valid-subsequence-ii/solution.rs'
 
 [[bin]]
+name = 'adjacent-increasing-subarrays-detection-ii'
+path = 'src/3350.adjacent-increasing-subarrays-detection-ii/solution.rs'
+
+[[bin]]
 name = 'find-the-maximum-number-of-fruits-collected'
 path = 'src/3363.find-the-maximum-number-of-fruits-collected/solution.rs'
 
