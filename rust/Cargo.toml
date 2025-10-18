@@ -147,6 +147,10 @@ name = 'find-the-maximum-number-of-fruits-collected'
 path = 'src/3363.find-the-maximum-number-of-fruits-collected/solution.rs'
 
 [[bin]]
+name = 'maximum-number-of-distinct-elements-after-operations'
+path = 'src/3397.maximum-number-of-distinct-elements-after-operations/solution.rs'
+
+[[bin]]
 name = 'design-task-manager'
 path = 'src/3408.design-task-manager/solution.rs'
 
