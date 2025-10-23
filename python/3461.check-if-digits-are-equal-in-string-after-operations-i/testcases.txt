@@ -1,0 +1,9 @@
+input:
+"3902"
+output:
+true
+
+input:
+"34789"
+output:
+false
