@@ -79,6 +79,10 @@ name = 'delete-duplicate-folders-in-system'
 path = 'src/1948.delete-duplicate-folders-in-system/solution.rs'
 
 [[bin]]
+name = 'next-greater-numerically-balanced-number'
+path = 'src/2048.next-greater-numerically-balanced-number/solution.rs'
+
+[[bin]]
 name = 'maximum-fruits-harvested-after-at-most-k-steps'
 path = 'src/2106.maximum-fruits-harvested-after-at-most-k-steps/solution.rs'
 
