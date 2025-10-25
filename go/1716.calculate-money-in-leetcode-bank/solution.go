@@ -15,19 +15,8 @@ import (
 // @lc code=begin
 
 func totalMoney(n int) int {
-	m := n / 7
-	// weekMoney := (1 + 7) * 7 / 2
-	// res := 0
-	// for range m {
-	// 	res += weekMoney
-	// 	weekMoney += 7
-	// }
-	res := 7 * (4 + m - 1 + 4) * m / 2
-	for range n - m*7 {
-		m++
-		res += m
-	}
-	return res
+	m, k := n/7, n%7
+	return 7*(4+m-1+4)*m/2 + (m+1+m+k)*k/2
 }
 
 // @lc code=end
