@@ -59,6 +59,10 @@ name = 'count-submatrices-with-all-ones'
 path = 'src/1504.count-submatrices-with-all-ones/solution.rs'
 
 [[bin]]
+name = 'minimum-number-of-increments-on-subarrays-to-form-a-target-array'
+path = 'src/1526.minimum-number-of-increments-on-subarrays-to-form-a-target-array/solution.rs'
+
+[[bin]]
 name = 'maximum-erasure-value'
 path = 'src/1695.maximum-erasure-value/solution.rs'
 
