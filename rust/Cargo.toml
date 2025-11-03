@@ -63,6 +63,10 @@ name = 'minimum-number-of-increments-on-subarrays-to-form-a-target-array'
 path = 'src/1526.minimum-number-of-increments-on-subarrays-to-form-a-target-array/solution.rs'
 
 [[bin]]
+name = 'minimum-time-to-make-rope-colorful'
+path = 'src/1578.minimum-time-to-make-rope-colorful/solution.rs'
+
+[[bin]]
 name = 'maximum-erasure-value'
 path = 'src/1695.maximum-erasure-value/solution.rs'
 
