@@ -190,6 +190,10 @@ path = 'src/3487.maximum-unique-subarray-sum-after-deletion/solution.rs'
 name = 'find-the-minimum-amount-of-time-to-brew-potions'
 path = 'src/3494.find-the-minimum-amount-of-time-to-brew-potions/solution.rs'
 
+[[bin]]
+name = 'power-grid-maintenance'
+path = 'src/3607.power-grid-maintenance/solution.rs'
+
 [dependencies]
 anyhow = '1.0.79'
 leetgo-rs = '0.2.1'
