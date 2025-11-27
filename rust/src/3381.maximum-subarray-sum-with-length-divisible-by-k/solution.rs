@@ -18,17 +18,14 @@ impl Solution {
     pub fn max_subarray_sum(nums: Vec<i32>, k: i32) -> i64 {
         let k = k as usize;
         let mut prefix_min = vec![1e15 as i64; k];
+        prefix_min[0] = 0;
         let mut res = i64::MIN;
         let mut s = 0;
 
         for (i, &x) in nums.iter().enumerate() {
-            let x = x as i64;
             let j = (i + 1) % k; // group sum by (divide k)
-            s += x;
+            s += x as i64;
             res = max(res, s - prefix_min[j]);
-            if j == 0 {
-                res = max(res, s)
-            }
             prefix_min[j] = min(prefix_min[j], s)
         }
         res
