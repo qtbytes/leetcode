@@ -167,6 +167,10 @@ name = 'find-the-maximum-number-of-fruits-collected'
 path = 'src/3363.find-the-maximum-number-of-fruits-collected/solution.rs'
 
 [[bin]]
+name = 'maximum-subarray-sum-with-length-divisible-by-k'
+path = 'src/3381.maximum-subarray-sum-with-length-divisible-by-k/solution.rs'
+
+[[bin]]
 name = 'maximum-number-of-distinct-elements-after-operations'
 path = 'src/3397.maximum-number-of-distinct-elements-after-operations/solution.rs'
 
