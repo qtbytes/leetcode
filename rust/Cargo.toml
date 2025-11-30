@@ -71,6 +71,10 @@ name = 'minimum-time-to-make-rope-colorful'
 path = 'src/1578.minimum-time-to-make-rope-colorful/solution.rs'
 
 [[bin]]
+name = 'make-sum-divisible-by-p'
+path = 'src/1590.make-sum-divisible-by-p/solution.rs'
+
+[[bin]]
 name = 'maximum-erasure-value'
 path = 'src/1695.maximum-erasure-value/solution.rs'
 
