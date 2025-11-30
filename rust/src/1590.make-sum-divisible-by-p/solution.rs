@@ -22,9 +22,6 @@ impl Solution {
         }
         // we need remove s
         let target = s;
-        if target == 0 {
-            return 0;
-        }
         s = 0;
 
         let mut map = HashMap::new();
@@ -34,11 +31,11 @@ impl Solution {
         for (i, &x) in nums.iter().enumerate() {
             let i = i + 1;
             s = (s + x) % p;
+            map.insert(s, i);
             if let Some(j) = map.get(&((s + p - target) % p)) {
                 // delete nums[j..i]
                 res = min(res, i - j)
             }
-            map.insert(s, i);
         }
 
         if res == nums.len() { -1 } else { res as i32 }
