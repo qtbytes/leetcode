@@ -1,3 +1,12 @@
 cache-dir = "~/.cache/ruff"
 
-lint.ignore = ["E741", "E501", "F401", "F403", "F405", "F841", "E722"]
+[lint]
+ignore = [
+    "E741", # Ambiguous variable name (e.g., l, O, I) — allowed for convenience
+    "E501", # Line too long — project prefers no hard line-length enforcement
+    "F401", # Imported but unused — ignore for wildcard imports or re-export patterns
+    "F403", # 'from module import *' used — allowed in this project
+    "F405", # Name may be undefined from star import — acceptable with F403
+    "F841", # Local variable assigned but never used — ignore temporary/debug vars
+    "E722", # Bare except — allowed if intentional
+]
