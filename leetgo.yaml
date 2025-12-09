@@ -7,25 +7,25 @@ code:
     cxxflags: -O2 -std=c++23
   python3:
     blocks:
-    - name: beforeMarker
-      template: |
+      - name: beforeMarker
+        template: |
 
-        from bisect import bisect_left, bisect_right
-        from collections import Counter, defaultdict, deque
-        from functools import cache, cmp_to_key, lru_cache, reduce
-        from heapq import heapify, heappop, heappush, heappushpop, heapreplace
-        from itertools import accumulate, chain, count, pairwise, zip_longest
-        from math import ceil, comb, floor, gcd, inf, isqrt, lcm, log2, perm, sqrt
-        from operator import xor
-        from pprint import pprint
-        from string import ascii_lowercase
-        from typing import Iterable, List, Optional
+          from bisect import bisect_left, bisect_right
+          from collections import Counter, defaultdict, deque
+          from functools import cache, cmp_to_key, lru_cache, reduce
+          from heapq import heapify, heappop, heappush, heappushpop, heapreplace
+          from itertools import accumulate, chain, count, pairwise, zip_longest
+          from math import ceil, comb, floor, gcd, inf, isqrt, lcm, log2, perm, sqrt
+          from operator import xor
+          from pprint import pprint
+          from string import ascii_lowercase
+          from typing import Iterable, List, Optional
   go:
     modifiers:
       - name: removeUselessComments
       - name: changeReceiverName
       # - name: addNamedReturn
-      # - name: addMod       
+      # - name: addMod
   rust:
     blocks:
       - name: beforeCode
@@ -41,6 +41,5 @@ contest:
   open_in_browser: false
 editor:
   use: custom
-  command: "code"
+  command: "zed"
   args: "{{.CodeFile}} {{.DescriptionFile}}"
-
