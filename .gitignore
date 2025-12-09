@@ -4,3 +4,5 @@ python/local
 .vscode
 rust/target
 contest/target
+rust/Cargo.lock
+rust/Cargo.toml
