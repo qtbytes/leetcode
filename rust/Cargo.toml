@@ -203,6 +203,10 @@ name = 'find-the-minimum-amount-of-time-to-brew-potions'
 path = 'src/3494.find-the-minimum-amount-of-time-to-brew-potions/solution.rs'
 
 [[bin]]
+name = 'count-special-triplets'
+path = 'src/3583.count-special-triplets/solution.rs'
+
+[[bin]]
 name = 'power-grid-maintenance'
 path = 'src/3607.power-grid-maintenance/solution.rs'
 
