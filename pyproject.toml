@@ -1,0 +1,6 @@
+[tool.basedpyright]
+typeCheckingMode = "basic"
+reportWildcardImportFromLibrary = "none"
+reportUnusedImport  = "none"
+# reportUnknownArgumentType = "none"
+# reportUnknownVariableType = "none"
