@@ -1,0 +1,29 @@
+input:
+2
+[["MESSAGE","10","id1 id0"],["OFFLINE","11","0"],["MESSAGE","71","HERE"]]
+output:
+[2,2]
+
+input:
+2
+[["MESSAGE","10","id1 id0"],["OFFLINE","11","0"],["MESSAGE","12","ALL"]]
+output:
+[2,2]
+
+input:
+2
+[["OFFLINE","10","0"],["MESSAGE","12","HERE"]]
+output:
+[0,1]
+
+input:
+3
+[["MESSAGE","2","HERE"],["OFFLINE","2","1"],["OFFLINE","1","0"],["MESSAGE","61","HERE"]]
+output:
+[1,0,2]
+
+input:
+2
+[["MESSAGE","70","HERE"],["OFFLINE","10","0"],["OFFLINE","71","0"]]
+output:
+[1,1]

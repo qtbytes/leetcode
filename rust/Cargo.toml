@@ -183,6 +183,10 @@ name = 'design-task-manager'
 path = 'src/3408.design-task-manager/solution.rs'
 
 [[bin]]
+name = 'count-mentions-per-user'
+path = 'src/3433.count-mentions-per-user/solution.rs'
+
+[[bin]]
 name = 'reschedule-meetings-for-maximum-free-time-i'
 path = 'src/3439.reschedule-meetings-for-maximum-free-time-i/solution.rs'
 
