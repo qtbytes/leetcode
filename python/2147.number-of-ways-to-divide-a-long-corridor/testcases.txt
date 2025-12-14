@@ -1,0 +1,14 @@
+input:
+"SSPPSPS"
+output:
+3
+
+input:
+"PPSPSP"
+output:
+1
+
+input:
+"S"
+output:
+0
