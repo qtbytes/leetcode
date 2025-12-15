@@ -103,6 +103,10 @@ name = 'maximum-fruits-harvested-after-at-most-k-steps'
 path = 'src/2106.maximum-fruits-harvested-after-at-most-k-steps/solution.rs'
 
 [[bin]]
+name = 'number-of-smooth-descent-periods-of-a-stock'
+path = 'src/2110.number-of-smooth-descent-periods-of-a-stock/solution.rs'
+
+[[bin]]
 name = 'minimum-difference-in-sums-after-removal-of-elements'
 path = 'src/2163.minimum-difference-in-sums-after-removal-of-elements/solution.rs'
 
