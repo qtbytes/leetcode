@@ -16,32 +16,23 @@ from typing import Iterable, List, Optional
 from leetgo_py import *
 
 # @lc code=begin
+INF = -(10**9)
 
 
 class Solution:
     def maximumProfit(self, prices: List[int], k: int) -> int:
         n = len(prices)
-
-        @cache
-        def dfs(i: int, state: int, k: int) -> int:
-            if i == n:
-                return 0 if state == 0 else -(10**9)
-            res = dfs(i + 1, state, k)
-            if state == 1:
-                res = max(res, prices[i] + dfs(i + 1, 0, k))
-            elif state == -1:
-                res = max(res, -prices[i] + dfs(i + 1, 0, k))
-            elif k > 0:
-                res = max(
-                    res,
-                    -prices[i] + dfs(i + 1, 1, k - 1),
-                    prices[i] + dfs(i + 1, -1, k - 1),
+        dp = [[[INF] * 3 for _ in range(k + 1)] for _ in range(n + 1)]
+        dp[0][0][2] = 0
+        for i, p in enumerate(prices, 1):
+            dp[i][0][2] = 0
+            for j in range(1, k + 1):
+                dp[i][j][2] = max(
+                    dp[i - 1][j][2], p + dp[i - 1][j][1], -p + dp[i - 1][j][0]
                 )
-            return res
-
-        res = dfs(0, 0, k)
-        dfs.cache_clear()
-        return res
+                dp[i][j][1] = max(dp[i - 1][j][1], -p + dp[i - 1][j - 1][2])
+                dp[i][j][0] = max(dp[i - 1][j][0], p + dp[i - 1][j - 1][2])
+        return max(dp[-1][j][2] for j in range(1, k + 1))
 
 
 # @lc code=end
