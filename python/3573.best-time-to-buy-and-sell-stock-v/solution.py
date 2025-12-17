@@ -21,18 +21,17 @@ INF = -(10**9)
 
 class Solution:
     def maximumProfit(self, prices: List[int], k: int) -> int:
-        n = len(prices)
-        dp = [[[INF] * 3 for _ in range(k + 1)] for _ in range(n + 1)]
-        dp[0][0][2] = 0
-        for i, p in enumerate(prices, 1):
-            dp[i][0][2] = 0
+        dp = [[INF] * 3 for _ in range(k + 1)]
+        dp[0][2] = 0
+        for p in prices:
+            dp_next = [[INF] * 3 for _ in range(k + 1)]
+            dp_next[0][2] = 0
             for j in range(1, k + 1):
-                dp[i][j][2] = max(
-                    dp[i - 1][j][2], p + dp[i - 1][j][1], -p + dp[i - 1][j][0]
-                )
-                dp[i][j][1] = max(dp[i - 1][j][1], -p + dp[i - 1][j - 1][2])
-                dp[i][j][0] = max(dp[i - 1][j][0], p + dp[i - 1][j - 1][2])
-        return max(dp[-1][j][2] for j in range(1, k + 1))
+                dp_next[j][2] = max(dp[j][2], p + dp[j][1], -p + dp[j][0])
+                dp_next[j][1] = max(dp[j][1], -p + dp[j - 1][2])
+                dp_next[j][0] = max(dp[j][0], p + dp[j - 1][2])
+            dp = dp_next
+        return max(dp[j][2] for j in range(1, k + 1))
 
 
 # @lc code=end
