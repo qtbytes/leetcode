@@ -20,13 +20,13 @@ from leetgo_py import *
 
 # Definition for a Node.
 class Node:
-    def __init__(self, val=None, next=None):
+    def __init__(self, val: int = 0, next: "Node" | None = None):
         self.val = val
         self.next = next
 
 
 class Solution:
-    def insert(self, head: "Optional[Node]", insertVal: int) -> "Node":
+    def insert(self, head, insertVal: int) -> "Node":
         if not head:
             head = Node(insertVal)
             head.next = head

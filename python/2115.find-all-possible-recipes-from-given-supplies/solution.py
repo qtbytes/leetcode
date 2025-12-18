@@ -26,7 +26,7 @@ class Solution:
         map = {
             recipe: set(ingredient) for recipe, ingredient in zip(recipes, ingredients)
         }
-        supplies = set(supplies)
+        supplies: set[str] = set(supplies)
         can = {}
 
         def can_make(recipe: str):

@@ -20,7 +20,7 @@ from leetgo_py import *
 
 class Solution:
     def kthSmallestProduct(self, nums1: List[int], nums2: List[int], k: int) -> int:
-        def split(nums: list[int]):
+        def split(nums):
             i = bisect_left(nums, 0)
             return nums[:i], nums[i:]
 

@@ -19,7 +19,7 @@ from leetgo_py import *
 
 
 class Solution:
-    def minimumDeletions(self, word: str, k: int) -> int:
+    def minimumDeletions(self, word: str, k: int) -> int | float:
         cnt = Counter(word)
         q = sorted(cnt.values())
 

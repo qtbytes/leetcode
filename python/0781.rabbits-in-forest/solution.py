@@ -11,7 +11,6 @@ from math import ceil, comb, floor, gcd, inf, isqrt, lcm, log2, perm, sqrt
 from operator import xor
 from pprint import pprint
 from string import ascii_lowercase
-from typing import *
 from typing import List, Optional
 
 from leetgo_py import *

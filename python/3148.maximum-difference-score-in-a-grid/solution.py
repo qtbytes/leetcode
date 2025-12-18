@@ -2,23 +2,23 @@
 # leetgo: 1.4.7
 # https://leetcode.cn/problems/maximum-difference-score-in-a-grid/
 
-from typing import *
-from leetgo_py import *
-
 import bisect
 import collections
 import functools
 import heapq
 import itertools
-import operator
 import math
+import operator
 import string
+from typing import *
+
+from leetgo_py import *
 
 # @lc code=begin
 
 
 class Solution:
-    def maxScore(self, grid: List[List[int]]) -> int:
+    def maxScore(self, grid: List[List[int]]) -> int | float:
         m, n = len(grid), len(grid[0])
         res = -math.inf
         for i in range(m - 1, -1, -1):

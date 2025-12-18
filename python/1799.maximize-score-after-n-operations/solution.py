@@ -19,7 +19,7 @@ from leetgo_py import *
 
 
 class Solution:
-    def maxScore(self, nums: List[int]) -> int:
+    def maxScore(self, nums: List[int]) -> int | float:
         n = len(nums)
         dp = [-inf] * (1 << n)
         dp[0] = 0

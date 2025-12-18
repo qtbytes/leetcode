@@ -19,7 +19,7 @@ from leetgo_py import *
 
 
 class Solution:
-    def largestPathValue(self, colors: str, edges: List[List[int]]) -> int:
+    def largestPathValue(self, colors: str, edges: List[List[int]]) -> int | float:
         n = len(colors)
         g = [[] for _ in range(n)]
         deg = [0] * n
@@ -31,9 +31,9 @@ class Solution:
 
         q = deque(i for i, d in enumerate(deg) if d == 0)
 
-        colors = list(ord(ch) - ord("a") for ch in colors)
+        colors: list[int] = list(ord(ch) - ord("a") for ch in colors)
 
-        def check_color(color: str, q: deque[int], deg: list[int]) -> int:
+        def check_color(color: int, q: deque[int], deg: list[int]) -> int | float:
             f = [0] * n
             rest_node = n - len(q)
             while q:

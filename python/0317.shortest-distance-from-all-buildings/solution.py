@@ -19,7 +19,7 @@ from leetgo_py import *
 
 
 class Solution:
-    def shortestDistance(self, grid: List[List[int]]) -> int:
+    def shortestDistance(self, grid: List[List[int]]) -> int | float:
         dirs = [0, -1, 0, 1, 0]
         m, n = len(grid), len(grid[0])
         cnt = [[0] * n for _ in range(m)]

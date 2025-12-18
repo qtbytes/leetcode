@@ -2,17 +2,17 @@
 # leetgo: 1.4.7
 # https://leetcode.cn/problems/find-the-integer-added-to-array-ii/
 
-from typing import *
-from leetgo_py import *
-
 import bisect
 import collections
 import functools
 import heapq
 import itertools
-import operator
 import math
+import operator
 import string
+from typing import *
+
+from leetgo_py import *
 
 # @lc code=begin
 
@@ -33,6 +33,8 @@ class Solution:
                 i += 1
             if j == n:
                 return d
+
+        raise NotImplementedError
 
 
 # @lc code=end

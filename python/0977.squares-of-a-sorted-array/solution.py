@@ -2,24 +2,24 @@
 # leetgo: 1.4.9
 # https://leetcode.cn/problems/squares-of-a-sorted-array/
 
-from typing import *
-from leetgo_py import *
-
 import bisect
 import collections
 import functools
 import heapq
 import itertools
-import operator
 import math
+import operator
 import string
+from typing import *
+
+from leetgo_py import *
 
 # @lc code=begin
 
 
 class Solution:
-    def sortedSquares(self, nums: List[int]) -> List[int]:
-        j = bisect.bisect_left(nums, 0)
+    def sortedSquares(self, nums: list[int]) -> List[int]:
+        j = bisect.bisect_left(nums, 0)  # ty:ignore
         i = j - 1
         res = []
         n = len(nums)

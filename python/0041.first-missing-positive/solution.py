@@ -20,7 +20,7 @@ from leetgo_py import *
 
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
-        nums = [x for x in nums if 0 < x <= n]
+        nums = [x for x in nums if 0 < x <= len(nums)]
 
         n = len(nums)
         for i in range(n):

@@ -24,10 +24,10 @@ You should not implement it, or speculate about its implementation
 
 
 class MountainArray:
-    def get(self, index: int) -> int:
+    def get(self, index: int):
         pass
 
-    def length(self) -> int:
+    def length(self):
         pass
 
 

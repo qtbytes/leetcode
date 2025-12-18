@@ -20,7 +20,7 @@ from leetgo_py import *
 
 
 class Solution:
-    def minTimeToReach(self, moveTime: List[List[int]]) -> int:
+    def minTimeToReach(self, moveTime: List[List[int]]) -> int | float:
         m, n = len(moveTime), len(moveTime[0])
         dist = [[inf] * n for _ in range(m)]
         dist[0][0] = 0

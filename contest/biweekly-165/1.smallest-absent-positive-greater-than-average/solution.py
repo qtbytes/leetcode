@@ -22,7 +22,7 @@ from leetgo_py import *
 class Solution:
     def smallestAbsent(self, nums: List[int]) -> int:
         res = max(1, sum(nums) // len(nums) + 1)
-        nums = set(nums)
+        nums: set[int] = set(nums)
         while res in nums:
             res += 1
         return res

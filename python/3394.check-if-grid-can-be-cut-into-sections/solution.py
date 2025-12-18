@@ -18,7 +18,7 @@ from leetgo_py import *
 
 
 # @lc code=begin
-def handle_intervals(a: list[tuple[int]]) -> bool:
+def handle_intervals(a: list[tuple[int, int]]) -> bool:
     a.sort()
     cnt = 0
     i, n = 0, len(a)

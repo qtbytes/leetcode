@@ -19,7 +19,7 @@ from leetgo_py import *
 
 
 class Solution:
-    def snakesAndLadders(self, board: List[List[int]]) -> int:
+    def snakesAndLadders(self, board: List[List[int]]) -> int | float:
         n = len(board)
         m = n * n
         dist = [inf] * m

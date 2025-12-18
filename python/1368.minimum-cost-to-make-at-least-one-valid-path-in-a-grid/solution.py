@@ -44,7 +44,7 @@ class Solution:
                 if valid(nx, ny) and f[nx][ny] > c + 1:
                     f[nx][ny] = c + 1
                     q.append((nx, ny, c + 1))
-        return inf
+        raise NotImplementedError
 
 
 # @lc code=end

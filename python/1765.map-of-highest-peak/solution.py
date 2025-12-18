@@ -7,7 +7,7 @@ from collections import Counter, defaultdict, deque
 from functools import cache, cmp_to_key, lru_cache, reduce
 from heapq import heapify, heappop, heappush, heappushpop, heapreplace
 from itertools import accumulate, chain, count, pairwise, zip_longest
-from math import ceil, comb, floor, gcd, inf, isqrt, lcm, log2, perm, sqrt
+from math import ceil, comb, floor, gcd, isqrt, lcm, log2, perm, sqrt
 from operator import xor
 from pprint import pprint
 from string import ascii_lowercase
@@ -29,7 +29,7 @@ class Solution:
                     q.append((i, j))
                     isWater[i][j] = 0
                 else:
-                    isWater[i][j] = inf
+                    isWater[i][j] = 10**18
         m, n = len(isWater), len(isWater[0])
         while q:
             p = []

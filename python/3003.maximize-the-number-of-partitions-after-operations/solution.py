@@ -20,7 +20,7 @@ from leetgo_py import *
 
 class Solution:
     def maxPartitionsAfterOperations(self, s: str, k: int) -> int:
-        s = [ord(ch) - ord("a") for ch in s]
+        s: list[int] = [ord(ch) - ord("a") for ch in s]
         n = len(s)
         if k == 26:
             return 1

@@ -20,7 +20,7 @@ from leetgo_py import *
 
 class Solution:
     def hasSameDigits(self, s: str) -> bool:
-        s = list(map(int, s))
+        s: list[int] = list(map(int, s))
         for _ in range(2, len(s)):
             for i in range(len(s) - 1):
                 s[i] = (s[i] + s[i + 1]) % 10

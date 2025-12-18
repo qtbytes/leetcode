@@ -11,7 +11,6 @@ from math import ceil, comb, floor, gcd, inf, isqrt, lcm, log2, perm, sqrt
 from operator import xor
 from pprint import pprint
 from string import ascii_lowercase
-from typing import *
 from typing import List, Optional
 
 from leetgo_py import *
@@ -29,7 +28,7 @@ class Solution:
         for i in sorted(range(n), key=lambda i: timestamp[i]):
             map[username[i]].append(website[i])
 
-        cnt = defaultdict(int)
+        cnt: defaultdict[str, int] = defaultdict(int)
 
         for v in map.values():
             n = len(v)

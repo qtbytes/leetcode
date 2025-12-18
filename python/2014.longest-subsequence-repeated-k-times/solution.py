@@ -27,7 +27,7 @@ class Solution:
         if not candidate:
             return ""
 
-        def is_sub(t: str, s: iter) -> bool:
+        def is_sub(t: str, s: Iterable) -> bool:
             # s is iter, `in` can digest iter
             return all(ch in s for ch in t)
 

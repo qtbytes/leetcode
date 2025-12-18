@@ -47,5 +47,5 @@ if __name__ == "__main__":
     root: List[int] = deserialize("List[int]", read_line())
     p: int = deserialize("int", read_line())
     q: int = deserialize("int", read_line())
-    ans = Solution().lowestCommonAncestor(root, p, q)
+    ans = Solution().lowestCommonAncestor(p, q)
     print("\noutput:", serialize(ans, "TreeNode"))

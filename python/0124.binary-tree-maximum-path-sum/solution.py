@@ -25,7 +25,7 @@ from leetgo_py import *
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int | float:
         ans = -inf
 
         def dfs(root: TreeNode | None) -> int:

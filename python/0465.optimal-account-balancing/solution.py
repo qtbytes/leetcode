@@ -33,7 +33,7 @@ class Solution:
                 return 0
             if balance[i] == 0:
                 return dfs(i + 1)
-            res = inf
+            res = 10**18
             for j in range(i + 1, n):
                 if balance[i] * balance[j] < 0:
                     balance[j] += balance[i]

@@ -2,17 +2,9 @@
 # leetgo: 1.4.7
 # https://leetcode.cn/problems/minimum-number-of-operations-to-make-word-k-periodic/
 
-from typing import *
-from leetgo_py import *
+from collections import Counter
 
-import bisect
-import collections
-import functools
-import heapq
-import itertools
-import operator
-import math
-import string
+from leetgo_py import *
 
 # @lc code=begin
 

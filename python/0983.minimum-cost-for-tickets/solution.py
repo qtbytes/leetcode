@@ -28,7 +28,7 @@ class Solution:
         def dfs(i: int) -> int:
             if i == n:
                 return 0
-            res = inf
+            res = 10**18
             for j, cost in enumerate(costs):
                 k = bisect_left(days, days[i] + ticket[j])
                 res = min(res, cost + dfs(k))

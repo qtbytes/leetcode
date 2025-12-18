@@ -30,7 +30,7 @@ class Solution:
                 fa[x] = find(fa[x])
             return fa[x]
 
-        def union(x: int, y: int) -> int:
+        def union(x: int, y: int):
             fx, fy = find(x), find(y)
             fa[fy] = fx
 
