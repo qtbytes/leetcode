@@ -7,6 +7,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"maps"
 	"os"
 	"slices"
 	"sort"
@@ -29,74 +30,40 @@ func findAllPeople(n int, meetings [][]int, firstPerson int) []int {
 	sort.Ints(ts)
 	ts = slices.Compact(ts)
 
-	ans := make([]bool, n)
-	ans[0] = true
-	ans[firstPerson] = true
-	all := n - 2
+	know := map[int]bool{}
+	know[0] = true
+	know[firstPerson] = true
 
 	for _, t := range ts {
 		// try to split group
 		group := g[t]
 		edges := make(map[int][]int)
-		seen := make(map[int]int)
 		for _, e := range group {
 			x, y := e[0], e[1]
 			edges[x] = append(edges[x], y)
 			edges[y] = append(edges[y], x)
-			seen[x] = -1
-			seen[y] = -1
 		}
 
-		t := -1
-		var dfs func(x int, seen *map[int]int)
-		dfs = func(x int, seen *map[int]int) {
+		seen := map[int]bool{}
+		var dfs func(x int)
+		dfs = func(x int) {
+			seen[x] = true
 			for _, y := range edges[x] {
-				if (*seen)[y] == -1 {
-					(*seen)[y] = t
-					dfs(y, seen)
+				if !seen[y] {
+					know[y] = true
+					dfs(y)
 				}
 			}
 		}
 
-		for x := range seen {
-			if seen[x] == -1 {
-				t++
-				seen[x] = t
-				dfs(x, &seen)
+		for x := range edges {
+			if !seen[x] && know[x] {
+				dfs(x)
 			}
-		}
-
-		ok := make([]bool, t+1)
-		groups := make([][]int, t+1)
-		for x, t := range seen {
-			if ans[x] {
-				ok[t] = true
-			} else {
-				groups[t] = append(groups[t], x)
-			}
-		}
-		// fmt.Println(groups, ok)
-
-		for t := range ok {
-			if ok[t] {
-				for _, x := range groups[t] {
-					ans[x] = true
-					all--
-				}
-			}
-		}
-		if all == 0 {
-			break
 		}
 	}
 
-	var res []int
-	for x, ok := range ans {
-		if ok {
-			res = append(res, x)
-		}
-	}
-	return res
+	return slices.Collect(maps.Keys(know))
 }
 
 // @lc code=end
