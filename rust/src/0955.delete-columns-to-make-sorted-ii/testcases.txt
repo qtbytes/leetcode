@@ -1,0 +1,14 @@
+input:
+["ca","bb","ac"]
+output:
+1
+
+input:
+["xc","yb","za"]
+output:
+0
+
+input:
+["zyx","wvu","tsr"]
+output:
+3
