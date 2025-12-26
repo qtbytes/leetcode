@@ -1,0 +1,14 @@
+input:
+"YYNY"
+output:
+2
+
+input:
+"NNNNN"
+output:
+0
+
+input:
+"YYYY"
+output:
+4

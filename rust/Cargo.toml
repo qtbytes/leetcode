@@ -139,6 +139,10 @@ name = 'range-product-queries-of-powers'
 path = 'src/2438.range-product-queries-of-powers/solution.rs'
 
 [[bin]]
+name = 'minimum-penalty-for-a-shop'
+path = 'src/2483.minimum-penalty-for-a-shop/solution.rs'
+
+[[bin]]
 name = 'rearranging-fruits'
 path = 'src/2561.rearranging-fruits/solution.rs'
 
