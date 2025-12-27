@@ -6,78 +6,55 @@ package main
 
 import (
 	"bufio"
-	"container/heap"
+	"cmp"
 	"fmt"
 	"os"
 	"slices"
 
+	"github.com/emirpasic/gods/v2/queues/priorityqueue"
 	. "github.com/j178/leetgo/testutils/go"
 )
 
 // @lc code=begin
-type IntHeap []int
-
-func (h IntHeap) Len() int           { return len(h) }
-func (h IntHeap) Less(i, j int) bool { return h[i] < h[j] }
-func (h IntHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
-
-func (h *IntHeap) Push(x any) {
-	*h = append(*h, x.(int))
-}
-
-func (h *IntHeap) Pop() any {
-	old := *h
-	n := len(old)
-	x := old[n-1]
-	*h = old[0 : n-1]
-	return x
-}
 
 type Pair struct{ end, index int }
-type ItemHeap []Pair
 
-func (h ItemHeap) Len() int { return len(h) }
-func (h ItemHeap) Less(i, j int) bool {
-	return h[i].end < h[j].end || h[i].end == h[j].end && h[i].index < h[j].index
+func pairComparator(a, b Pair) int {
+	if a.end != b.end {
+		return cmp.Compare(a.end, b.end) // smaller end comes first
+	}
+	return cmp.Compare(a.index, b.index) // tie-break by smaller index
 }
-func (h ItemHeap) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
-
-func (h *ItemHeap) Push(x any) {
-	*h = append(*h, x.(Pair))
-}
-
-func (h *ItemHeap) Pop() any {
-	old := *h
-	n := len(old)
-	x := old[n-1]
-	*h = old[0 : n-1]
-	return x
-}
-
 func mostBooked(n int, meetings [][]int) int {
 	slices.SortFunc(meetings, func(a, b []int) int { return a[0] - b[0] })
-	unused := &IntHeap{}
+
+	unused := priorityqueue.New[int]()
 	for i := range n {
-		heap.Push(unused, i)
+		unused.Enqueue(i)
 	}
 	// fmt.Println(meetings)
-	using := &ItemHeap{}
+	using := priorityqueue.NewWith(pairComparator)
 	cnt := make([]int, n)
 	for _, m := range meetings {
 		start, end := m[0], m[1]
-		for using.Len() > 0 && (*using)[0].end <= start {
-			heap.Push(unused, heap.Pop(using).(Pair).index)
+		for !using.Empty() {
+			p, _ := using.Peek()
+			if p.end <= start {
+				using.Dequeue()
+				unused.Enqueue(p.index)
+			} else {
+				break
+			}
 		}
-		if len(*unused) > 0 {
-			i := (heap.Pop(unused)).(int)
+		if !unused.Empty() {
+			i, _ := unused.Dequeue()
 			cnt[i]++
-			heap.Push(using, Pair{end, i})
+			using.Enqueue(Pair{end, i})
 		} else {
-			p := heap.Pop(using).(Pair)
+			p, _ := using.Dequeue()
 			cnt[p.index]++
-			heap.Push(using, Pair{p.end + (end - start), p.index})
+			using.Enqueue(Pair{p.end + (end - start), p.index})
 		}
-		// fmt.Println(unused, using)
 	}
 
 	ans := 0
