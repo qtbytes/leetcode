@@ -55,6 +55,10 @@ name = 'convert-binary-number-in-a-linked-list-to-integer'
 path = 'src/1290.convert-binary-number-in-a-linked-list-to-integer/solution.rs'
 
 [[bin]]
+name = 'count-negative-numbers-in-a-sorted-matrix'
+path = 'src/1351.count-negative-numbers-in-a-sorted-matrix/solution.rs'
+
+[[bin]]
 name = 'maximum-number-of-events-that-can-be-attended'
 path = 'src/1353.maximum-number-of-events-that-can-be-attended/solution.rs'
 
