@@ -16,9 +16,11 @@ import (
 
 func pyramidTransition(bottom string, allowed []string) bool {
 	shape := map[string][]byte{}
+	first := map[byte]bool{}
 
 	for _, a := range allowed {
 		shape[a[:2]] = append(shape[a[:2]], a[2])
+		first[a[0]] = true
 	}
 
 	var dfs func(row string, i int, path *[]byte) bool
@@ -35,13 +37,22 @@ func pyramidTransition(bottom string, allowed []string) bool {
 		s := row[i : i+2]
 		if v, ok := shape[s]; ok {
 			for _, ch := range v {
+				// skip the invalid
+				if i == 0 && !first[ch] {
+					continue
+				}
+				if i > 0 {
+					key := []byte{(*path)[i-1], ch}
+					if _, ok := shape[string(key)]; !ok {
+						continue
+					}
+				}
 				*path = append(*path, ch)
 				if dfs(row, i+1, path) {
 					return true
 				}
 				*path = (*path)[:len(*path)-1]
 			}
-
 		} else {
 			return false
 		}
