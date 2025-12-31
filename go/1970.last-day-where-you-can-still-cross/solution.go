@@ -22,16 +22,16 @@ func latestDayToCross(row int, col int, cells [][]int) int {
 
 	var find func(x int) int
 	find = func(x int) int {
-		if (fa)[x] != x {
-			(fa)[x] = find(fa[x])
+		if fa[x] != x {
+			fa[x] = find(fa[x])
 		}
-		return (fa)[x]
+		return fa[x]
 	}
 
 	union := func(x, y int) bool {
 		fx, fy := find(x), find(y)
 		if fx != fy {
-			(fa)[fy] = fx
+			fa[fy] = fx
 			return true
 		}
 		return false
@@ -44,16 +44,19 @@ func latestDayToCross(row int, col int, cells [][]int) int {
 
 	seen := map[[2]int]struct{}{}
 
-	dirs := [][2]int{{-1, -1}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 1}, {-1, 0}, {1, 0}}
-
 	for day, cell := range cells {
 		x, y := cell[0]-1, cell[1]-1
-		for _, d := range dirs {
-			nx, ny := x+d[0], y+d[1]
-			if _, ok := seen[[2]int{nx, ny}]; ok {
-				union(x*col+y, nx*col+ny)
-				if find(0) == find(row*col-1) {
-					return day
+		for dx := range 3 {
+			for dy := range 3 {
+				nx, ny := x+dx-1, y+dy-1
+				if x == nx && y == ny {
+					continue
+				}
+				if _, ok := seen[[2]int{nx, ny}]; ok {
+					union(x*col+y, nx*col+ny)
+					if find(0) == find(row*col-1) {
+						return day
+					}
 				}
 			}
 		}
