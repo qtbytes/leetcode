@@ -51,6 +51,10 @@ name = 'delete-columns-to-make-sorted-ii'
 path = 'src/0955.delete-columns-to-make-sorted-ii/solution.rs'
 
 [[bin]]
+name = 'n-repeated-element-in-size-2n-array'
+path = 'src/0961.n-repeated-element-in-size-2n-array/solution.rs'
+
+[[bin]]
 name = 'remove-sub-folders-from-the-filesystem'
 path = 'src/1233.remove-sub-folders-from-the-filesystem/solution.rs'
 
