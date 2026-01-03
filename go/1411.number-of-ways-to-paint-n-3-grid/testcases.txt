@@ -1,0 +1,9 @@
+input:
+1
+output:
+12
+
+input:
+5000
+output:
+30228214
