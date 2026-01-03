@@ -16,58 +16,69 @@ import (
 const MOD int = 1e9 + 7
 
 func numOfWays(n int) int {
-	points := [][3]int{}
-	for i := range 3 {
-		for j := range 3 {
-			if i == j {
-				continue
-			}
-			for k := range 3 {
-				if j == k {
-					continue
-				}
-				p := [3]int{i, j, k}
-				points = append(points, p)
-			}
-		}
-	}
-
-	g := make([][]int, len(points))
-	for i, x := range points {
-		for j, y := range points {
-			ok := func(x, y [3]int) bool {
-				for i := range x {
-					if x[i] == y[i] {
-						return false
-					}
-				}
-				return true
-			}
-			if x != y && ok(x, y) {
-				g[i] = append(g[i], j)
-			}
-		}
-	}
-
-	prev := make([]int, len(points))
-	for i := range prev {
-		prev[i] = 1
-	}
+	// actually: points only have 2 types:  aba, abc
+	// aba has 3*2, g[aba] = {bab bac bcb cab cac} = aba * 3 + abc *2
+	// abc has 3*2, {bab bca bcb cab}  = aba * 2 + abc*2
+	f, g := 6, 6
 	for range n - 1 {
-		next := make([]int, len(points))
-		for x, c := range prev {
-			for y := range g[x] {
-				next[y] = (next[y] + c) % MOD
-			}
-		}
-		prev = next
+		nf := (3*f + 2*g) % MOD
+		ng := (2*f + 2*g) % MOD
+		f, g = nf, ng
 	}
+	return (f + g) % MOD
 
-	ans := 0
-	for _, x := range prev {
-		ans = (ans + x) % MOD
-	}
-	return ans
+	// points := [][3]int{}
+	// for i := range 3 {
+	// 	for j := range 3 {
+	// 		if i == j {
+	// 			continue
+	// 		}
+	// 		for k := range 3 {
+	// 			if j == k {
+	// 				continue
+	// 			}
+	// 			p := [3]int{i, j, k}
+	// 			points = append(points, p)
+	// 		}
+	// 	}
+	// }
+
+	// g := make([][]int, len(points))
+	// for i, x := range points {
+	// 	for j, y := range points {
+	// 		ok := func(x, y [3]int) bool {
+	// 			for i := range x {
+	// 				if x[i] == y[i] {
+	// 					return false
+	// 				}
+	// 			}
+	// 			return true
+	// 		}
+	// 		if x != y && ok(x, y) {
+	// 			g[i] = append(g[i], j)
+	// 		}
+	// 	}
+	// }
+
+	// prev := make([]int, len(points))
+	// for i := range prev {
+	// 	prev[i] = 1
+	// }
+	// for range n - 1 {
+	// 	next := make([]int, len(points))
+	// 	for x, c := range prev {
+	// 		for y := range g[x] {
+	// 			next[y] = (next[y] + c) % MOD
+	// 		}
+	// 	}
+	// 	prev = next
+	// }
+
+	// ans := 0
+	// for _, x := range prev {
+	// 	ans = (ans + x) % MOD
+	// }
+	// return ans
 }
 
 // @lc code=end
