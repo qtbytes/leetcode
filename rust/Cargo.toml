@@ -71,6 +71,10 @@ name = 'maximum-number-of-events-that-can-be-attended'
 path = 'src/1353.maximum-number-of-events-that-can-be-attended/solution.rs'
 
 [[bin]]
+name = 'four-divisors'
+path = 'src/1390.four-divisors/solution.rs'
+
+[[bin]]
 name = 'longest-subarray-of-1s-after-deleting-one-element'
 path = 'src/1493.longest-subarray-of-1s-after-deleting-one-element/solution.rs'
 
