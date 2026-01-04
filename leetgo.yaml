@@ -1,7 +1,7 @@
 author: none
 language: en
 code:
-  lang: rust | go
+  lang: rust
   cpp:
     cxx: clang++
     cxxflags: -O2 -std=c++23
