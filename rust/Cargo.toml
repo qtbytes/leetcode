@@ -115,6 +115,10 @@ name = 'delete-duplicate-folders-in-system'
 path = 'src/1948.delete-duplicate-folders-in-system/solution.rs'
 
 [[bin]]
+name = 'maximum-matrix-sum'
+path = 'src/1975.maximum-matrix-sum/solution.rs'
+
+[[bin]]
 name = 'next-greater-numerically-balanced-number'
 path = 'src/2048.next-greater-numerically-balanced-number/solution.rs'
 
