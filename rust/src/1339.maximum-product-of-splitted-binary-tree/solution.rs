@@ -24,42 +24,30 @@ impl Solution {
         // then choose a sub tree, the answer is sum * (total - sum)
 
         fn calc_sum(root: &Option<Rc<RefCell<TreeNode>>>) -> i32 {
-            let mut ans = 0;
             if let Some(root) = root {
-                ans += root.borrow().val;
-                if let Some(left) = root.borrow().left.clone() {
-                    ans += calc_sum(&Some(left))
-                }
-                if let Some(right) = root.borrow().right.clone() {
-                    ans += calc_sum(&Some(right))
-                }
+                let root = root.borrow();
+                root.val + calc_sum(&root.left) + calc_sum(&root.right)
+            } else {
+                0
             }
-            ans
         }
 
         let total = calc_sum(&root);
 
-        fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, total: i64, ans: &mut i64) -> i64 {
-            let mut sum = 0;
+        fn dfs(root: &Option<Rc<RefCell<TreeNode>>>, total: i32, ans: &mut i64) -> i32 {
+            // split root as a subtree
             if let Some(root) = root {
-                sum += root.borrow().val as i64;
-                // split left as subtree
-                if let Some(left) = root.borrow().left.clone() {
-                    let sub = dfs(&Some(left), total, ans) as i64;
-                    *ans = max(*ans, sub * (total - sub));
-                    sum += sub;
-                }
-                if let Some(right) = root.borrow().right.clone() {
-                    let sub = dfs(&Some(right), total, ans) as i64;
-                    *ans = max(*ans, sub * (total - sub));
-                    sum += sub;
-                }
+                let root = root.borrow();
+                let sum = root.val + dfs(&root.left, total, ans) + dfs(&root.right, total, ans);
+                *ans = max(*ans, sum as i64 * (total - sum) as i64);
+                sum
+            } else {
+                0
             }
-            sum
         }
 
         let mut ans = 0;
-        dfs(&root, total as i64, &mut ans);
+        dfs(&root, total, &mut ans);
 
         (ans % MOD) as _
     }
