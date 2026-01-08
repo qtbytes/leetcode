@@ -16,26 +16,18 @@ use std::mem::swap;
 
 impl Solution {
     pub fn max_dot_product(a: Vec<i32>, b: Vec<i32>) -> i32 {
-        // f[i][j] =max(f[i-1][j], max(f[i-1][k-1] + a[i] * b[k] for k in 0..j) )
-        //
         let m = a.len();
         let n = b.len();
 
         let mut f = vec![vec![i32::MIN; n + 1]; m + 1];
 
-        for j in 0..n {
-            f[1][j + 1] = max(f[1][j], a[0] * b[j])
-        }
-
-        // println!("{:?}", f);
-        for i in 1..m {
-            let mut h = BinaryHeap::new();
+        for i in 0..m {
             for j in 0..n {
-                f[i + 1][j + 1] = max(a[i] * b[j], max(f[i][j + 1], f[i + 1][j]));
-                h.push(f[i][j].saturating_add(a[i] * b[j]));
-                f[i + 1][j + 1] = max(f[i + 1][j + 1], *h.peek().unwrap());
+                f[i + 1][j + 1] = max(
+                    max(0, f[i][j]) + (a[i] * b[j]),
+                    max(f[i][j + 1], f[i + 1][j]),
+                );
             }
-            // println!("{:?}", &f[..=i + 1]);
         }
 
         f[m][n]
