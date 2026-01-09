@@ -35,6 +35,10 @@ name = 'magic-squares-in-grid'
 path = 'src/0840.magic-squares-in-grid/solution.rs'
 
 [[bin]]
+name = 'smallest-subtree-with-all-the-deepest-nodes'
+path = 'src/0865.smallest-subtree-with-all-the-deepest-nodes/solution.rs'
+
+[[bin]]
 name = 'reordered-power-of-2'
 path = 'src/0869.reordered-power-of-2/solution.rs'
 
