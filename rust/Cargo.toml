@@ -1,4 +1,8 @@
 [[bin]]
+name = 'maximal-rectangle'
+path = 'src/0085.maximal-rectangle/solution.rs'
+
+[[bin]]
 name = 'fraction-to-recurring-decimal'
 path = 'src/0166.fraction-to-recurring-decimal/solution.rs'
 
