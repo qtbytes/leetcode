@@ -195,6 +195,10 @@ name = 'ways-to-express-an-integer-as-sum-of-powers'
 path = 'src/2787.ways-to-express-an-integer-as-sum-of-powers/solution.rs'
 
 [[bin]]
+name = 'maximize-area-of-square-hole-in-grid'
+path = 'src/2943.maximize-area-of-square-hole-in-grid/solution.rs'
+
+[[bin]]
 name = 'valid-word'
 path = 'src/3136.valid-word/solution.rs'
 
