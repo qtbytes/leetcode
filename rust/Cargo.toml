@@ -79,6 +79,10 @@ name = 'convert-binary-number-in-a-linked-list-to-integer'
 path = 'src/1290.convert-binary-number-in-a-linked-list-to-integer/solution.rs'
 
 [[bin]]
+name = 'maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold'
+path = 'src/1292.maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/solution.rs'
+
+[[bin]]
 name = 'maximum-product-of-splitted-binary-tree'
 path = 'src/1339.maximum-product-of-splitted-binary-tree/solution.rs'
 
