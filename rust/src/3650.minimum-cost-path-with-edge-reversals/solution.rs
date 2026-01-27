@@ -31,6 +31,9 @@ impl Solution {
         let mut h = BinaryHeap::new(); // (dist, index)
         h.push((Reverse(0), 0));
         while let Some((Reverse(d), x)) = h.pop() {
+            if x == n - 1 {
+                return d;
+            }
             for &(y, cost) in &g[x] {
                 if dist[y] == -1 || dist[y] > d + cost {
                     dist[y] = d + cost;
@@ -39,7 +42,7 @@ impl Solution {
             }
         }
 
-        dist[n - 1]
+        -1
     }
 }
 
