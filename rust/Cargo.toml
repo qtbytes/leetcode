@@ -311,6 +311,10 @@ name = 'minimum-cost-path-with-edge-reversals'
 path = 'src/3650.minimum-cost-path-with-edge-reversals/solution.rs'
 
 [[bin]]
+name = 'minimum-cost-path-with-teleportations'
+path = 'src/3651.minimum-cost-path-with-teleportations/solution.rs'
+
+[[bin]]
 name = 'best-time-to-buy-and-sell-stock-using-strategy'
 path = 'src/3652.best-time-to-buy-and-sell-stock-using-strategy/solution.rs'
 
