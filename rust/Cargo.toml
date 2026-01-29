@@ -215,6 +215,10 @@ name = 'maximum-square-area-by-removing-fences-from-a-field'
 path = 'src/2975.maximum-square-area-by-removing-fences-from-a-field/solution.rs'
 
 [[bin]]
+name = 'minimum-cost-to-convert-string-i'
+path = 'src/2976.minimum-cost-to-convert-string-i/solution.rs'
+
+[[bin]]
 name = 'find-the-largest-area-of-square-inside-two-rectangles'
 path = 'src/3047.find-the-largest-area-of-square-inside-two-rectangles/solution.rs'
 
