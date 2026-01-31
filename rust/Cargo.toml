@@ -23,6 +23,10 @@ name = '1-bit-and-2-bit-characters'
 path = 'src/0717.1-bit-and-2-bit-characters/solution.rs'
 
 [[bin]]
+name = 'find-smallest-letter-greater-than-target'
+path = 'src/0744.find-smallest-letter-greater-than-target/solution.rs'
+
+[[bin]]
 name = 'swim-in-rising-water'
 path = 'src/0778.swim-in-rising-water/solution.rs'
 
