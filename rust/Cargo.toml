@@ -326,6 +326,10 @@ path = 'src/3651.minimum-cost-path-with-teleportations/solution.rs'
 name = 'best-time-to-buy-and-sell-stock-using-strategy'
 path = 'src/3652.best-time-to-buy-and-sell-stock-using-strategy/solution.rs'
 
+[[bin]]
+name = 'longest-balanced-subarray-i'
+path = 'src/3719.longest-balanced-subarray-i/solution.rs'
+
 [dependencies]
 anyhow = '1.0.79'
 leetgo-rs = '0.2.1'
