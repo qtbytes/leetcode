@@ -331,6 +331,10 @@ name = 'longest-balanced-substring-i'
 path = 'src/3713.longest-balanced-substring-i/solution.rs'
 
 [[bin]]
+name = 'longest-balanced-substring-ii'
+path = 'src/3714.longest-balanced-substring-ii/solution.rs'
+
+[[bin]]
 name = 'longest-balanced-subarray-i'
 path = 'src/3719.longest-balanced-subarray-i/solution.rs'
 
