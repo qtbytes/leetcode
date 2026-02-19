@@ -19,6 +19,10 @@ name = 'diagonal-traverse'
 path = 'src/0498.diagonal-traverse/solution.rs'
 
 [[bin]]
+name = 'count-binary-substrings'
+path = 'src/0696.count-binary-substrings/solution.rs'
+
+[[bin]]
 name = 'minimum-ascii-delete-sum-for-two-strings'
 path = 'src/0712.minimum-ascii-delete-sum-for-two-strings/solution.rs'
 
