@@ -119,6 +119,10 @@ name = 'max-dot-product-of-two-subsequences'
 path = 'src/1458.max-dot-product-of-two-subsequences/solution.rs'
 
 [[bin]]
+name = 'check-if-a-string-contains-all-binary-codes-of-size-k'
+path = 'src/1461.check-if-a-string-contains-all-binary-codes-of-size-k/solution.rs'
+
+[[bin]]
 name = 'longest-subarray-of-1s-after-deleting-one-element'
 path = 'src/1493.longest-subarray-of-1s-after-deleting-one-element/solution.rs'
 
