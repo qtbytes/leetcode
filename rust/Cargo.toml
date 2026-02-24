@@ -83,6 +83,10 @@ name = 'n-repeated-element-in-size-2n-array'
 path = 'src/0961.n-repeated-element-in-size-2n-array/solution.rs'
 
 [[bin]]
+name = 'sum-of-root-to-leaf-binary-numbers'
+path = 'src/1022.sum-of-root-to-leaf-binary-numbers/solution.rs'
+
+[[bin]]
 name = 'maximum-level-sum-of-a-binary-tree'
 path = 'src/1161.maximum-level-sum-of-a-binary-tree/solution.rs'
 
