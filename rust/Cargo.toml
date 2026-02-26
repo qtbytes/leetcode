@@ -119,6 +119,10 @@ name = 'four-divisors'
 path = 'src/1390.four-divisors/solution.rs'
 
 [[bin]]
+name = 'number-of-steps-to-reduce-a-number-in-binary-representation-to-one'
+path = 'src/1404.number-of-steps-to-reduce-a-number-in-binary-representation-to-one/solution.rs'
+
+[[bin]]
 name = 'max-dot-product-of-two-subsequences'
 path = 'src/1458.max-dot-product-of-two-subsequences/solution.rs'
 
