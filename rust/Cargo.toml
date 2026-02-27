@@ -351,6 +351,10 @@ name = 'best-time-to-buy-and-sell-stock-using-strategy'
 path = 'src/3652.best-time-to-buy-and-sell-stock-using-strategy/solution.rs'
 
 [[bin]]
+name = 'minimum-operations-to-equalize-binary-string'
+path = 'src/3666.minimum-operations-to-equalize-binary-string/solution.rs'
+
+[[bin]]
 name = 'longest-balanced-substring-i'
 path = 'src/3713.longest-balanced-substring-i/solution.rs'
 
