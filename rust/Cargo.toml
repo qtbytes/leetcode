@@ -143,6 +143,10 @@ name = 'minimum-number-of-increments-on-subarrays-to-form-a-target-array'
 path = 'src/1526.minimum-number-of-increments-on-subarrays-to-form-a-target-array/solution.rs'
 
 [[bin]]
+name = 'minimum-swaps-to-arrange-a-binary-grid'
+path = 'src/1536.minimum-swaps-to-arrange-a-binary-grid/solution.rs'
+
+[[bin]]
 name = 'minimum-time-to-make-rope-colorful'
 path = 'src/1578.minimum-time-to-make-rope-colorful/solution.rs'
 
