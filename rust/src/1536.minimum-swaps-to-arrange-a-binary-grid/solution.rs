@@ -17,32 +17,26 @@ use std::mem::swap;
 impl Solution {
     pub fn min_swaps(grid: Vec<Vec<i32>>) -> i32 {
         let n = grid.len();
-        if n == 1 {
-            return 0;
-        }
-        let mut cnt = vec![];
+        let mut cnt = vec![n; n];
         for i in 0..n {
             if let Some(j) = (0..n).rev().find(|&j| grid[i][j] == 1) {
-                cnt.push(n - j - 1);
-            } else {
-                cnt.push(n);
+                cnt[i] = n - j - 1;
             }
-        }
-        if cnt.len() < n - 1 {
-            return -1;
         }
         // so we should find the least swap time to `sort` rows
         // just find the first valid and replace will be ok
         let mut res = 0;
-        for i in 0..cnt.len() {
+        // only care about the n-1 line
+        for i in 0..n - 1 {
             let zero_need = n - 1 - i;
             if cnt[i] < zero_need {
                 if let Some(j) = (i + 1..cnt.len()).find(|index| cnt[*index] >= zero_need) {
-                    // move j to i
+                    // move j to i, and move i..j to i+1..j+1
                     res += j - i;
-                    for k in (i + 1..=j).rev() {
-                        (cnt[k], cnt[k - 1]) = (cnt[k - 1], cnt[k]);
-                    }
+                    cnt.copy_within(i..j, i + 1);
+                    // for k in (i + 1..=j).rev() {
+                    //     (cnt[k], cnt[k - 1]) = (cnt[k - 1], cnt[k]);
+                    // }
                 } else {
                     return -1;
                 }
