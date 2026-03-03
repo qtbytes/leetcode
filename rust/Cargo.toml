@@ -147,6 +147,10 @@ name = 'minimum-swaps-to-arrange-a-binary-grid'
 path = 'src/1536.minimum-swaps-to-arrange-a-binary-grid/solution.rs'
 
 [[bin]]
+name = 'find-kth-bit-in-nth-binary-string'
+path = 'src/1545.find-kth-bit-in-nth-binary-string/solution.rs'
+
+[[bin]]
 name = 'minimum-time-to-make-rope-colorful'
 path = 'src/1578.minimum-time-to-make-rope-colorful/solution.rs'
 
