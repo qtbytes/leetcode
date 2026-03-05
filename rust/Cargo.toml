@@ -179,6 +179,10 @@ name = 'maximum-number-of-events-that-can-be-attended-ii'
 path = 'src/1751.maximum-number-of-events-that-can-be-attended-ii/solution.rs'
 
 [[bin]]
+name = 'minimum-changes-to-make-alternating-binary-string'
+path = 'src/1758.minimum-changes-to-make-alternating-binary-string/solution.rs'
+
+[[bin]]
 name = 'minimize-maximum-pair-sum-in-array'
 path = 'src/1877.minimize-maximum-pair-sum-in-array/solution.rs'
 
