@@ -207,6 +207,10 @@ name = 'maximum-matrix-sum'
 path = 'src/1975.maximum-matrix-sum/solution.rs'
 
 [[bin]]
+name = 'find-unique-binary-string'
+path = 'src/1980.find-unique-binary-string/solution.rs'
+
+[[bin]]
 name = 'next-greater-numerically-balanced-number'
 path = 'src/2048.next-greater-numerically-balanced-number/solution.rs'
 
