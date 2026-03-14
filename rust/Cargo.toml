@@ -123,6 +123,10 @@ name = 'number-of-steps-to-reduce-a-number-in-binary-representation-to-one'
 path = 'src/1404.number-of-steps-to-reduce-a-number-in-binary-representation-to-one/solution.rs'
 
 [[bin]]
+name = 'the-k-th-lexicographical-string-of-all-happy-strings-of-length-n'
+path = 'src/1415.the-k-th-lexicographical-string-of-all-happy-strings-of-length-n/solution.rs'
+
+[[bin]]
 name = 'max-dot-product-of-two-subsequences'
 path = 'src/1458.max-dot-product-of-two-subsequences/solution.rs'
 
