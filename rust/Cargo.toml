@@ -167,6 +167,10 @@ name = 'make-sum-divisible-by-p'
 path = 'src/1590.make-sum-divisible-by-p/solution.rs'
 
 [[bin]]
+name = 'fancy-sequence'
+path = 'src/1622.fancy-sequence/solution.rs'
+
+[[bin]]
 name = 'concatenation-of-consecutive-binary-numbers'
 path = 'src/1680.concatenation-of-consecutive-binary-numbers/solution.rs'
 
