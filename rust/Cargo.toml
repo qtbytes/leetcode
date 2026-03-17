@@ -183,6 +183,10 @@ name = 'maximum-score-from-removing-substrings'
 path = 'src/1717.maximum-score-from-removing-substrings/solution.rs'
 
 [[bin]]
+name = 'largest-submatrix-with-rearrangements'
+path = 'src/1727.largest-submatrix-with-rearrangements/solution.rs'
+
+[[bin]]
 name = 'maximum-number-of-events-that-can-be-attended-ii'
 path = 'src/1751.maximum-number-of-events-that-can-be-attended-ii/solution.rs'
 
