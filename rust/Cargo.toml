@@ -295,6 +295,10 @@ name = 'find-the-largest-area-of-square-inside-two-rectangles'
 path = 'src/3047.find-the-largest-area-of-square-inside-two-rectangles/solution.rs'
 
 [[bin]]
+name = 'count-submatrices-with-top-left-element-and-sum-less-than-k'
+path = 'src/3070.count-submatrices-with-top-left-element-and-sum-less-than-k/solution.rs'
+
+[[bin]]
 name = 'valid-word'
 path = 'src/3136.valid-word/solution.rs'
 
