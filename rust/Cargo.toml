@@ -319,6 +319,10 @@ name = 'find-the-maximum-length-of-valid-subsequence-ii'
 path = 'src/3202.find-the-maximum-length-of-valid-subsequence-ii/solution.rs'
 
 [[bin]]
+name = 'count-submatrices-with-equal-frequency-of-x-and-y'
+path = 'src/3212.count-submatrices-with-equal-frequency-of-x-and-y/solution.rs'
+
+[[bin]]
 name = 'minimum-number-of-seconds-to-make-mountain-height-zero'
 path = 'src/3296.minimum-number-of-seconds-to-make-mountain-height-zero/solution.rs'
 
